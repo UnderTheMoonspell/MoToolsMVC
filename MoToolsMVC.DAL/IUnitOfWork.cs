@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoToolsMVC.DAL.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace MoToolsMVC.DAL
     public interface IUnitOfWork
     {
         void Commit();
-        IGenericRepository<MenuObject> MenuRepository { get; }
+        IMenuRepository MenuRepository { get; }
     }
 }

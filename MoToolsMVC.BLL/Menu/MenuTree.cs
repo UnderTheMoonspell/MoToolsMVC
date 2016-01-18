@@ -12,7 +12,7 @@ namespace MoToolsMVC.BLL.Menu
 
         public MenuTree()
         {
-
+            this.nodes = new List<MenuNode>();
         }
 
         public MenuTree(List<MenuNode> nodes)

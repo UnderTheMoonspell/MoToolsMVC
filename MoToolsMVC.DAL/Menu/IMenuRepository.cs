@@ -5,8 +5,8 @@ using System.Text;
 
 namespace MoToolsMVC.DAL.Menu
 {
-    public interface IMenuRepository<T> where T : class
+    public interface IMenuRepository
     {
-        List<MenuObject> GetMenuByUser(string username);
+        List<Get_Menu_MVC_Result> GetMenuByUser(string username);
     }
 }

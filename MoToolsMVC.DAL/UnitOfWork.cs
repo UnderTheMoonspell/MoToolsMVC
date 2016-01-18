@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoToolsMVC.DAL.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,12 @@ namespace MoToolsMVC.DAL
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private RioJaneiroEntities _dbContext = new RioJaneiroEntities(ConfigurationManager.ConnectionStrings["FarmaModel"].ConnectionString);
-        private IMenuRepository<MenuObject> _menuRepository;
+        private RioJaneiroEntities _dbContext;
+        private IMenuRepository _menuRepository;
 
         public UnitOfWork()
         {
-
+            _dbContext = new RioJaneiroEntities();
         }
 
         public void Commit()
@@ -21,13 +22,13 @@ namespace MoToolsMVC.DAL
             _dbContext.SaveChanges();
         }
 
-        public IMenuRepository<MenuObject> FarmaciaRepository
+        public IMenuRepository MenuRepository
         {
             get
             {
                 if (this._menuRepository == null)
                 {
-                    this._menuRepository = new GenericRepository<MenuObject>(_dbContext);
+                    this._menuRepository = new MenuRepository(_dbContext);
                 }
                 return _menuRepository;
             }

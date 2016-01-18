@@ -14,9 +14,9 @@ namespace MoToolsMVC.DAL
         {
             this._dbcontext = dbcontext;
         }
-        public List<MenuObject> GetMenuByUser(string username)
+        public List<Get_Menu_MVC_Result> GetMenuByUser(string username)
         {
-            var menuList = _dbcontext.Get_Menu(username);
+            var menuList = _dbcontext.Get_Menu_MVC(username);
             return menuList.ToList();
         }
     }

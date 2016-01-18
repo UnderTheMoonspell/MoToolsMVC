@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoToolsMVC.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace MoToolsMVC.BLL.Menu
 {
     public interface IMenuService
     {
-        List<MenuObject> GetMenuByUser(string username);
+        MenuTree GetMenuByUser(string username);
     }
 }

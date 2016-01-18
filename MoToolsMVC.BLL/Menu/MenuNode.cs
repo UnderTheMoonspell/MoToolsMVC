@@ -15,7 +15,7 @@ namespace MoToolsMVC.BLL.Menu
 
         public MenuNode()
         {
-
+            this.children = new List<MenuNode>();
         }
 
         public MenuNode(string id, string label, string targetLink)
@@ -23,6 +23,7 @@ namespace MoToolsMVC.BLL.Menu
             this.id = id;
             this.label = label;
             this.targetLink = targetLink;
+            this.children = new List<MenuNode>();
         }
 
         public MenuNode(string id, string label, string targetLink, List<MenuNode> children)
@@ -31,6 +32,7 @@ namespace MoToolsMVC.BLL.Menu
             this.label = label;
             this.targetLink = targetLink;
             this.children = children;
+            this.children = new List<MenuNode>();
         }
     }
 }

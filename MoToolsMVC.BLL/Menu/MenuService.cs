@@ -9,30 +9,41 @@ namespace MoToolsMVC.BLL.Menu
 {
     public class MenuService : IMenuService
     {
-        IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
         public MenuService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;           
         }
 
-        public List<MenuObject> GetMenuByUser(string username)
+        public MenuTree GetMenuByUser(string username)
         {
-            List<MenuObject> menuobj = _unitOfWork._menuRepository.GetMenu();
-            List<int> teamIDs = menuobj.Select(l => l.BDTeamID).Distinct().OrderBy(l => l.Value).Select(l => l.Value).ToList();
+            //SO PARA TESTE
+            username = "boanateladmin";
+            MenuTree menuTree = new MenuTree();
+            MenuNode newMenuNode = new MenuNode();
+
+            List<Get_Menu_MVC_Result> menuObj = _unitOfWork.MenuRepository.GetMenuByUser(username);
+            List<int> teamIDs = menuObj.Select(l => l.BDTEamID).Distinct().OrderBy(l => l.Value).Select(l => l.Value).ToList();
+
+            foreach(int teamId in teamIDs)
+            {
+                BuildMenu(menuTree, menuObj, null, newMenuNode, teamId);
+            }
+            return menuTree;
         }
 
-        private void BuildMenu(MenuTree menuTree, List<MenuObject> menuObj, int? parentId, MenuNode inProgressNode, int BDTeamId)
+        private void BuildMenu(MenuTree menuTree, List<Get_Menu_MVC_Result> menuList, int? parentId, MenuNode inProgressNode, int BDTeamId)
         {
 
-            List<MenuObject> filteredMenu = menuObj.FindAll(x => x.ParentID == parentId && x.BDTeamID == BDTeamId);
+            List<Get_Menu_MVC_Result> filteredMenu = menuList.FindAll(x => x.ParentID == parentId && x.BDTEamID == BDTeamId);
 
             //string prevBdTeamId, bdTeamId, menuID, newParentId, label, targetLink, newId;
 
-            foreach (MenuObject menu in filteredMenu)
+            foreach (Get_Menu_MVC_Result menu in filteredMenu)
             {
-                MenuNode node = new MenuNode((menu.ID + menu.BDTeamID).ToString(), menu.Name, menu.URL);
+                MenuNode node = new MenuNode((menu.ID + "-" + menu.BDTEamID).ToString(), menu.Name, menu.URL);
 
-                if (menu.ParentID == null && (menu.ID == 0 || menu.BDTeamID == 0))
+                if (menu.ParentID == null && (menu.ID == 0 || menu.BDTEamID == 0))
                 {
                     menuTree.nodes.Add(node);
                 }
@@ -40,7 +51,7 @@ namespace MoToolsMVC.BLL.Menu
                 {
                     inProgressNode.children.Add(node);
                 }
-                BuildMenu(menuTree, menuObj, menu.ID, node, menu.BDTeamID.Value);
+                BuildMenu(menuTree, menuList, menu.ID, node, menu.BDTEamID.Value);
             }
         }
     }
