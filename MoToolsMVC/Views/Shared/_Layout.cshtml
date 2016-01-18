@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="topBar">
+                <div class="logotipo-area" onclick="location.href='/Default.aspx';"></div>
+                <div class="username-area valign-middle" style="display: table;">
+                    <div id="DIV_Search" class="inline" style="float:left;height: 46px;line-height: 46px;">
+
+                        <div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Btn_Search')">
+
+                            <input name="ctl00$TB_Search2" type="text" id="ctl00_TB_Search2" class="input-search capitalize" placeholder="Procurar Caso" autocomplete="off">
+                            <input type="submit" name="ctl00$Btn_Search" value="" id="Btn_Search">
+
+                        </div>
+
+                    </div>
+                    <div class="user-container inline" style="float:left;">
+                        <div class="user-avatar" style="float:left; display: none"></div>
+                        <div class="user-info" style="float:left;">
+                            <div class="user-name">
+                                <span id="ctl00_menuName">Boanateladmin</span>
+                            </div>
+                            <div class="user-job">
+                                <span id="ctl00_menuPerfil">Manutenção</span>
+                            </div>
+                        </div>
+                        <div class="user-open-menu" style="float:left;"></div>
+                    </div>
+                    <div class="logout-area" style="float:left; height: 46px;">
+                        <input type="submit" name="ctl00$decoyEnterBtn" value="" onclick="return false;" id="ctl00_decoyEnterBtn" style="display: none;">
+                        <input type="image" name="ctl00$LogOffBtn" id="ctl00_LogOffBtn" src="../img/logoutV2.png" style="height:30px;width:30px;border-width:0px;" value="">
+                    </div>
+                    <span id="ctl00_lblUsername" class="lbl-username" style="display: none">BOANATELADMIN</span>
+                </div>
+                <div class="user-menu">
+                    <ul class="user-popup">
+                        <li class="greyBackground">
+                            <span class="inline">
+                                <span class="bold">TMT:</span>
+                                00:00:00
+                            </span>
+                            <span class="inline">
+                                <span class="bold">TRATADOS:</span>
+                                0
+                            </span>
+                        </li>
+                        <li class="config">
+                            <span>Config</span>
+                        </li>
+                        <li class="links inline">
+                            <span class="ui-icon motools-icon ui-icon-gear"></span>
+                            <span><a href="/Administration/Configurations/EditUser.aspx">Editar</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @Html.Partial("_Menu")
+        @*@Html.Action("Render", "Menu", User.Identity.Name)*@
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    </body>
+    </html>
