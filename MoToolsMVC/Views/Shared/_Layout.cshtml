@@ -12,7 +12,9 @@
     <div id="tablePageLayout" class="body-table">
         <div class="main-page-contax-colors"></div>
         <div class="topBar">
-            <div class="logotipo-area" onclick="location.href='/Default.aspx';"></div>
+            <a href="@Url.Action("Index","Home")">
+                <div class="logotipo-area" onclick="location.href='/Default.aspx';"></div>
+            </a>
             <div class="username-area valign-middle" style="display: table;">
                 <div id="DIV_Search" class="inline" style="float:left;height: 46px;line-height: 46px;">
                     <div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'Btn_Search')">

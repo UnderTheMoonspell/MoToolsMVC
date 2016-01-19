@@ -10,14 +10,16 @@ namespace MoToolsMVC.BLL.Menu
     public class MenuService : IMenuService
     {
         private IUnitOfWork _unitOfWork;
+        private string _rootUrl { get; set; }
         public MenuService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;           
         }
 
-        public MenuTree GetMenuByUser(string username)
+        public MenuTree GetMenuByUser(string username, string rootUrl)
         {
             //SO PARA TESTE
+            this._rootUrl = rootUrl;
             username = "boanateladmin";
             MenuTree menuTree = new MenuTree();
             MenuNode newMenuNode = new MenuNode();
@@ -41,7 +43,8 @@ namespace MoToolsMVC.BLL.Menu
 
             foreach (Get_Menu_MVC_Result menu in filteredMenu)
             {
-                MenuNode node = new MenuNode((menu.ID + "-" + menu.BDTEamID).ToString(), menu.Name, menu.URL);
+                string menuUrl = menu.URL != null ? menu.URL.Replace("~/",this._rootUrl) : null;
+                MenuNode node = new MenuNode((menu.ID + "-" + menu.BDTEamID).ToString(), menu.Name, menuUrl);
 
                 if (menu.ParentID == null && (menu.ID == 0 || menu.BDTEamID == 0))
                 {

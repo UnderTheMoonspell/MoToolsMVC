@@ -19,8 +19,12 @@ namespace MoToolsMVC.Controllers
         
         public ActionResult Get(string username)
         {
-            MenuTree menuTree = _menuservice.GetMenuByUser(username);
-
+            MenuTree menuTree = Session["MenuTree"] as MenuTree;
+            if (menuTree == null)
+            {
+                menuTree = _menuservice.GetMenuByUser(username, HttpContext.Request.ApplicationPath.ToString());
+                Session.Add("MenuTree", menuTree);
+            }
             return Json(menuTree, JsonRequestBehavior.AllowGet);
         }
 

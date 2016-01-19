@@ -9,6 +9,6 @@ namespace MoToolsMVC.BLL.Menu
 {
     public interface IMenuService
     {
-        MenuTree GetMenuByUser(string username);
+        MenuTree GetMenuByUser(string username, string rootUrl);
     }
 }

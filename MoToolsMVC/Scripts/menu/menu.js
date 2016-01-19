@@ -1,5 +1,5 @@
 ﻿(function () {
-    //'use strict'
+    'use strict'
     var MenuController = {
         initialWidth: "243px",
         minimizedWidth: "36px",
@@ -26,9 +26,8 @@
                         function (node, level) {
                             if (node.hasChildren()) {
                                 $menuTree.tree('closeNode', node);
-                                return false;
-                            }
-                            return true;
+                                return true;
+                            }                            
                         }
                     );
                     $menuTree.removeClass('displayNone');
