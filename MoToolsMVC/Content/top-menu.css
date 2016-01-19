@@ -1,0 +1,25 @@
+.tabs-container {
+  background-color: #2A3A4A;
+  /* very dark blue */
+  padding: 5px 0px; }
+
+#GV_Tabs {
+  float: left; }
+  #GV_Tabs, #GV_Tabs tr td {
+    border: 0; }
+  #GV_Tabs .tab {
+    padding: 5px 20px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #2A3A4A;
+    /* very dark blue */
+    color: white;
+    font-family: 'Segoe UI';
+    border: 0;
+    border-right: 2px #40546C solid;
+    cursor: pointer; }
+    #GV_Tabs .tab.selected {
+      color: #27ABD2;
+      /* blue */ }
+
+/*# sourceMappingURL=top-menu.css.map */

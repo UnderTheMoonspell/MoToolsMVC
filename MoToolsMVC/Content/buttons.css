@@ -1,0 +1,148 @@
+.mot-button {
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+  height: 21px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 10px;
+  color: black;
+  background-color: white;
+  padding: 0px 10px 0px 25px; }
+
+.mot-blue-button {
+  background-color: transparent;
+  border: 0;
+  padding: 0px; }
+
+.unlock-button-blue {
+  background-image: url("../../img/DesbloquearV2.png");
+  background-position-x: -2px;
+  background-position-y: 0px;
+  height: 22px;
+  width: 23px; }
+
+.transfer-button-blue {
+  background-image: url("../../img/TransferirV2.png");
+  background-position-x: 0px;
+  background-position-y: -2px;
+  height: 22px;
+  width: 22px; }
+
+.search-button-blue {
+  background-image: url("../../img/Auditoria.png");
+  padding: 0px 5px 0px 22px; }
+
+.simple-button {
+  padding: 0px 10px 0px 10px; }
+
+.pause-button {
+  background-image: url("../../img/Carregar.png");
+  margin-right: 7px;
+  float: right; }
+
+.unlock-button {
+  background-image: url("../../img/desbloquear.png"); }
+
+.transfer-button {
+  background-image: url("../../img/transferir.png"); }
+
+.save-button {
+  background-image: url("../../img/SalvarIcon.png"); }
+
+.done-button {
+  background-image: url("../../img/IconConcluido.png"); }
+
+.makeCall-button {
+  background-image: url("../../img/RealizarCallIcon.png"); }
+
+.makeRegister-button {
+  background-image: url("../../img/RealizarCadastroIcon.png"); }
+
+.backspaceGreenArrow-button {
+  background-image: url("../../img/ArrowGreenLeft.png"); }
+
+.cancel-button {
+  background-image: url("../../img/Cancelar.png"); }
+
+.exportExcel-button {
+  background-image: url("../../img/ExportarExcel.png"); }
+
+.returnCase-button {
+  background-image: url("../../img/DevolverCaso.png"); }
+
+.exportPDF-button {
+  background-image: url("../../img/ExportarPDF.png"); }
+
+.filter-button {
+  background-image: url("../../img/Filtrar.png"); }
+
+.search-button {
+  background-image: url("../../img/Pesquisa.png"); }
+
+.prioritizing-button {
+  background-image: url("../../img/Prioritizar.png"); }
+
+.productivity-button {
+  background-image: url("../../img/Produtividade.png"); }
+
+.refuseCase-button {
+  background-image: url("../../img/RecusarCaso.png"); }
+
+.insert-button {
+  background-image: url("../../img/Inserir-Registo.png"); }
+
+.refresh-button {
+  background-image: url("../../img/actualizar-dados.png"); }
+
+.delete-button {
+  background-image: url("../../img/delete_x_16.png"); }
+
+.cancelEdit-button {
+  background-image: url("../../img/CancelarEdicao.png"); }
+
+.edit-button {
+  background-image: url("../../img/edit-pencil14px.png"); }
+
+.add-button {
+  background-image: url("../../img/Adicionar.png"); }
+
+.loadShares-button {
+  background-image: url("../../img/Carregar-cotas.png"); }
+
+.load-button {
+  background-image: url("../../img/Carregar.png"); }
+
+.download-button {
+  background-image: url("../../img/Download.png"); }
+
+.validate-button {
+  background-image: url("../../img/Validar.png"); }
+
+.removeAlert-button {
+  background-image: url("../../img/Eliminar-alerta.png"); }
+
+.generateCase-button {
+  background-image: url("../../img/Gerar-caso.png"); }
+
+.tasks-button {
+  background-image: url("../../img/Tarefas.png"); }
+
+.doneTasks-button {
+  background-image: url("../../img/Tarefas-Concluidas.png"); }
+
+.createTasks-button {
+  background-image: url("../../img/Tarefas-Criar.png"); }
+
+.pendingTasks-button {
+  background-image: url("../../img/Tarefas-pendentes.png"); }
+
+.faultAlert-button {
+  background-image: url("../../img/Alterar-avaria.png"); }
+
+.listAllRegisters-button {
+  background-image: url("../../img/Listar-todos-os-registos.png"); }
+
+.list-button {
+  background-image: url("../../img/Listagem.png"); }
+
+/*# sourceMappingURL=buttons.css.map */

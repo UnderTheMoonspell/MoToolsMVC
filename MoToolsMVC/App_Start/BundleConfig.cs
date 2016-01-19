@@ -27,12 +27,17 @@ namespace MoToolsMVC
                       "~/Scripts/menu/menu.js",
                       "~/Scripts/vendor/tree.jquery.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/vendor/jqtree.cs"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/vendor/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/side-menu.css",
+                      "~/Content/top-menu.css",
+                      "~/Content/top-bar.css",
+                      "~/Content/buttons.css",
+                      "~/Content/vendor/jqtree.cs"
+                      ));
+
+
         }
     }
 }

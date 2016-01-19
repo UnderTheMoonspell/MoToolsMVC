@@ -1,0 +1,86 @@
+.main-page-contax-colors {
+  background-image: url("../../img/topPageContaxColors.png");
+  background-repeat: no-repeat;
+  background-size: 100% 4px;
+  background-position: top center;
+  height: 9px; }
+
+.topBar, .logotipo-area {
+  height: 55px; }
+
+.username-area, .logout-area {
+  height: 35px; }
+
+.logotipo-area {
+  background-image: url("../../img/ContaxNewLogo.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  width: 243px;
+  float: left; }
+
+.username-area {
+  background-color: white;
+  float: right; }
+  .username-area .lbl-username {
+    text-transform: uppercase;
+    color: #575757;
+    /* dark grey */
+    font-size: 16px;
+    font-weight: bold; }
+  .username-area > * {
+    margin-left: 12px;
+    margin-right: 12px;
+    vertical-align: middle;
+    display: inline-flex; }
+  .username-area .user-avatar {
+    height: 30px;
+    width: 30px; }
+  .username-area .user-container > * {
+    margin-right: 10px;
+    margin-left: 10px; }
+  .username-area .user-container .user-menu {
+    width: 20px; }
+
+.input-search {
+  border: 1px solid lightgrey;
+  color: black;
+  font-size: 14px;
+  width: 190px;
+  padding: 4px 6px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: none;
+  -webkit-transition: all 0.15s ease-in 0s;
+  -moz-transition: all 0.15s ease-in 0s;
+  -o-transition: all 0.15s ease-in 0s;
+  transition: all 0.15s ease-in 0s; }
+
+.search-error {
+  border-color: red !important; }
+
+.user-container .user-info .user-name {
+  font-size: 17px;
+  color: #6b6b6b;
+  /* dark grey */
+  font-family: 'Segoe UI Semibold'; }
+.user-container .user-info .user-job {
+  font-size: 12px;
+  color: #8f8f8f;
+  /* grey */
+  font-family: 'Segoe UI Semilight'; }
+.user-container .user-open-menu:after {
+  font-family: entyporegular;
+  content: '\25BE';
+  font-size: 30px;
+  color: #6b6b6b;
+  /* dark grey */ }
+
+.logout-area {
+  margin-left: 0px;
+  margin-right: 20px; }
+
+/*# sourceMappingURL=top-bar.css.map */

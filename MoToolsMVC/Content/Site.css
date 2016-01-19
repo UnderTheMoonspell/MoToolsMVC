@@ -1,24 +1,488 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+.fullWidth{
+    width: 100%;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px; 
+  font-family: Trebuchet MS,Verdana,Sans-Serif;
+
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
+.body-table {
+  width: 100%;
+  height: 100%; }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+input, select {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* layout */
+.inline {
+  display: inline-flex; }
+
+.scrollableY {
+  overflow-y: auto; }
+
+.scrollableX {
+  overflow-x: auto; }
+
+.nowrap {
+  white-space: nowrap; }
+
+.rightFloat {
+  float: right; }
+
+.leftFloat {
+  float: left; }
+
+.valign-middle * {
+  margin: auto 0; }
+
+.InvisibleColumn, .displayNone {
+  display: none; }
+
+/* text */
+.capitalize {
+  text-transform: capitalize; }
+
+.rightAlign {
+  text-align: right; }
+
+/* backgrounds */
+.default-background {
+  background-color: #e5e9ec;
+  /* very ligth grey */
+  width: 99%;
+  border-width: 0; }
+
+.whiteBackground {
+  background-color: white; }
+
+.transparent {
+  background-color: transparent; }
+
+/* colors */
+.editTime_Green {
+  color: #02cf0d;
+  /* green */ }
+
+.editTime_Yellow {
+  color: #ffd300;
+  /* yellow */ }
+
+.editTime_Red {
+  color: red; }
+
+/* others */
+.checkboxSelectAll {
+  position: relative;
+  top: 3px;
+  left: 3px; }
+
+.image-sla-circle {
+  height: 15px;
+  width: 15px;
+  border-width: 0; }
+
+/* loader */
+.spinner-loading {
+  position: fixed;
+  text-align: center;
+  z-index: 1000;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); }
+
+.align-vertical-center {
+  position: fixed;
+  top: 50%;
+  left: 50%; }
+
+#imgLoader {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1000000000; }
+  #imgLoader .loader-background {
+    opacity: 0.7;
+    background-color: #444;
+    /* very dark grey */
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#444', endColorstr='#444');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px; }
+  #imgLoader #loader_gif {
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000000001;
+    background: url("../../img/loading.gif") no-repeat scroll center center transparent; }
+  #imgLoader #loader_txt {
+    height: 100%;
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    position: fixed;
+    z-index: 1000000002;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 12px;
+    color: white; }
+
+#loader {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000; }
+  #loader:before {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -0.25em; }
+  #loader > #loaderContent {
+    vertical-align: middle;
+    display: inline-block; }
+    #loader > #loaderContent > img {
+      width: 40px;
+      height: 40px; }
+
+/* User Menu */
+.user-popup {
+  display: none;
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  min-width: 180px;
+  background-color: white;
+  padding: 0px;
+  list-style-type: none;
+  border: 1px lightgrey solid;
+  font-family: 'Segoe UI'; }
+  .user-popup.active {
+    display: block; }
+  .user-popup a, .user-popup span {
+    display: block;
+    text-decoration: none;
+    font-size: 14px; }
+  .user-popup li > span {
+    padding-left: 10px; }
+  .user-popup .greyBackground {
+    background-color: #EBF0F0;
+    /* very light grey */
+    padding: 5px 0px; }
+    .user-popup .greyBackground .bold {
+      font-family: 'Segoe UI Semibold';
+      float: left;
+      margin-right: 5px; }
+  .user-popup .config span {
+    font-family: 'Segoe UI Semilight';
+    color: #BBBBBB;
+    /* grey */
+    font-size: 10px;
+    margin: 10px 0px; }
+  .user-popup .links {
+    padding-bottom: 15px; }
+    .user-popup .links span, .user-popup .links a {
+      font-family: 'Segoe UI'; }
+    .user-popup .links span {
+      padding-left: 0px;
+      margin-left: 10px; }
+
+.motools-icon {
+  background-image: url("../Content/jQuery-ui/images/ui-icons_222222_256x240.png"); }
+
+/* multiselect */
+.ui-multiselect {
+  border-radius: 0 !important;
+  width: 97% !important;
+  padding: 2px 0 2px 4px !important;
+  line-height: 17px !important;
+  font-size: 11px !important; }
+  .ui-multiselect .ui-icon {
+    margin-right: 5px !important; }
+
+.ui-multiselect-menu, .ui-selectmenu-menu {
+  z-index: 1000000000;
+  position: fixed; }
+
+.ui-selectmenu-menu {
+  max-height: 300px;
+  overflow-y: scroll; }
+
+.ui-selectmenu-button {
+  width: 95% !important;
+  line-height: 17px !important;
+  padding: 4px 0 2px 4px !important;
+  border-radius: 0 !important; }
+
+.ui-selectmenu-text {
+  line-height: none !important;
+  padding: 0 !important;
+  font-size: 11px !important; }
+
+/* Cases\Individuais\View.aspx */
+#ctl00_Content1_GV_PlanoFixo input[type='text'],
+#ctl00_Content1_GV_PlanoFixo select {
+  width: 100%; }
+
+/* CommunicationError.html */
+/* UC_OperationalDashboadChart.js */
+.tabs-area {
+  vertical-align: bottom;
+  text-align: left; }
+
+/* Operational Dashboard Charts */
+.cellLeftTab {
+  width: 3px;
+  height: 32px;
+  background-repeat: repeat-y; }
+
+.cellRightTab {
+  width: 28px;
+  height: 32px;
+  background-repeat: no-repeat; }
+
+.cellTopTab {
+  height: 3px !important;
+  background-repeat: repeat-x; }
+
+.cellBottomTab {
+  height: 27px; }
+
+.cellTabButton {
+  border: 0px;
+  padding: 0px 20px;
+  margin: 0px;
+  font-size: 16px;
+  color: #006eab;
+  /* dark blue */
+  font-weight: bold;
+  background-color: white;
+  cursor: pointer; }
+
+.sel .cellLeftTab {
+  background-image: url("../../img/left_bg.png"); }
+
+.sel .cellRightTab {
+  background-image: url("../../img/right_bg.png"); }
+
+.sel .cellTopTab {
+  background-image: url("../../img/top_bg.png"); }
+
+.sel .cellBottomTab {
+  background-image: url("../../img/center_bg.png"); }
+
+.sel .cellTabButton {
+  background-image: url("../../img/center_bg.png"); }
+
+/* UC_DualOption.ascx */
+.allowDisabled[disabled] {
+  background-color: #EFEFEF;
+  /* light grey */ }
+
+.LightGray_Border {
+  border: 1px solid lightgray; }
+
+/* WithoutPortabilityTT_Edit.aspx */
+.radioButtonsList {
+  font-size: 11px; }
+
+/* Jquery PlaceHolder */
+.placeholder {
+  color: #aaa;
+  /* grey */ }
+
+/* OI_Gestor_Edit.aspx */
+.SmallTableHeader tr th {
+  height: 22px !important; }
+
+.SmallMarginTop {
+  margin-top: 10px; }
+
+.TableInnerTdsFullWidthCenter tr td {
+  text-align: center; }
+
+.TableInnerTdsFullWidthCenter tr td input, .TableInnerTdsFullWidthCenter tr td select {
+  width: 98%; }
+
+/* UC_Portability_Attendance.ascx */
+/* UC_Portability_Scheduling.ascx */
+/* UC_Portability_Welcome.ascx */
+/* Renovation.aspx */
+table.lightGreyTable,
+table.lightGreyTable > tbody,
+table.lightGreyTable > thead,
+table.lightGreyTable > tbody > tr > td,
+table.lightGreyTable > thead > tr > th {
+  border: 0; }
+
+table.lightGreyTable > tbody > tr > td {
+  padding: 2px; }
+
+table.lightGreyTable > tbody > tr > td > input,
+table.lightGreyTable > tbody > tr > td > select {
+  width: 100%; }
+
+table.lightGreyTable > tbody > tr {
+  border-bottom: 1px solid #111111; }
+
+table.lightGreyTable > tbody > tr > th {
+  border: 0;
+  border-bottom: 1px solid #111111;
+  padding: 5px 10px 5px 10px;
+  font-weight: bold;
+  font-size: 10px;
+  font-family: Trebuchet MS,Verdana,Sans-Serif; }
+
+table.lightGreyTable > tbody > tr > td:first-child {
+  white-space: nowrap; }
+
+/* UC_ImportFiles.ascx */
+.dateFilter {
+  width: 48%;
+  float: left;
+  padding-left: 1%; }
+
+.importButton {
+  width: 48%;
+  float: right;
+  text-align: right;
+  padding-right: 1%; }
+
+.filterContainer {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px; }
+
+/* EditUser.aspx */
+.cbContainer label {
+  display: inline-block;
+  font-size: 11px !important; }
+
+.editUser {
+  margin-left: 15px;
+  margin-top: 15px; }
+
+.editUser .save-button {
+  margin-left: 5px;
+  margin-top: 10px; }
+
+/* UC_SearchAll.ascx */
+#DT_SearchAll thead th {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  visibility: hidden; }
+
+/* ActivityClosingHistory_BO_Anatel.ascx */
+.maxWidth80 {
+  max-width: 80px;
+  word-wrap: break-word; }
+
+.width450 {
+  width: 450px;
+  max-width: 450px;
+  word-wrap: break-word; }
+
+/* REL_Operator.ascx */
+/* UC_OperationsSummary.ascx */
+.operations-summary {
+  color: #333333;
+  background-color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 10px;
+  min-height: 360px; }
+
+.operations-summary .lead {
+  margin-bottom: 16px;
+  padding-top: 15px;
+  font-size: 19.5px;
+  font-weight: 200;
+  line-height: 24px; }
+
+.operations-summary .summary {
+  background: #fafafa;
+  /* very ligth grey */
+  list-style: none;
+  padding: 0px; }
+
+.operations-summary .summary li {
+  float: left;
+  width: 180px;
+  line-height: 16px; }
+
+.operations-summary .summary li a {
+  background: #f4f4f4;
+  /* very ligth grey */
+  border: 1px solid #e8e8e8;
+  /* light grey */
+  display: inline-block;
+  padding: 10px 0px 5px 0px;
+  width: 100%; }
+
+.operations-summary .summary .summary-title {
+  height: 16px;
+  padding-left: 15px;
+  font-size: 14px; }
+
+.operations-summary .summary h4 {
+  font-size: 36px;
+  font-weight: 300;
+  padding-left: 15px;
+  margin: 20px 0px; }
+
+/*  */
+div div div img:nth-child(2) {
+  float: right;
+  margin-top: 0; }
+
+/*  */
+.LabelError {
+  border: 1px solid red !important; }
+
+.ms-parent.inputClass.LabelError {
+  border: 0 !important; }
+
+.ms-parent.inputClass.LabelError > button {
+  border: 1px solid red !important; }
+
+.TextColorError {
+  color: red; }
+
+/*  */
+#Btn_Search {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAnNCSVQICFXsRgQAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAAFnRFWHRDcmVhdGlvbiBUaW1lADEwLzMwLzEx+8uc+QAAAKVJREFUGBllwSFKg3EAB9BfMrhgWDQMXTNtNxDDxGDzDC8aJngBb2AzGia6ZvMGIqgwo7K8JMJkS5O/6LcPZL6XHzb0vTrXzl92jMw9mpg6Sk3TmxcdDW0DC91UHFvo5JeGsctU3Hq2niUDo1Sc+dDKknvXqdg2N9RMrDlR9FNz6MvYjQdFMdFLTdeFJ1dOvStm9rPKgaliZjer9Hy6s5X/7NlMvgFslUfFeutXPgAAAABJRU5ErkJggg==") 50% 50% no-repeat;
+  height: 24px;
+  width: 22px;
+  border: 0;
+  position: relative;
+  right: 25px;
+  top: 6px; }
+
+@-moz-document url-prefix() {
+  #Btn_Search {
+    top: 0px; } }
+/*  */
+.Label {
+  font-size: 13px; }
+
+/*# sourceMappingURL=site.css.map */
