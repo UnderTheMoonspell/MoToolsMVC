@@ -1,0 +1,160 @@
+﻿th.title {
+	height: 18px;
+	border-bottom: 1px solid #3BDDFF;
+	color: #ff8f21;
+	border-top: none;
+	padding-top: 25px;
+	font-size: 16px;
+	font-weight:500;
+	background: none;
+	border-left: none;
+	border-right: none;
+	font-family: Trebuchet MS,Verdana,Sans-Serif;
+	text-align: left;
+}
+
+th.first {
+	padding-top: 10px;
+}
+
+.titleMargin {
+	height: 8px;
+}
+
+.inputsBOCondominium {
+	width: 100%;
+	min-width: 112px;
+	height: 17px;
+}
+
+.text4col {
+	width: 97%;
+	min-width: 112px;
+	height: 17px;
+}
+
+.textLastcol {
+	width: 100%;
+	min-width: 112px;
+	height: 17px;
+}
+
+/*.tableTrativas {
+	width: 100%;
+	border-spacing:5px;
+	border: 1px solid black;
+}*/
+
+.fullWidth {
+	width: 100%;
+}
+
+.fullHeight {
+	height: 100%;
+}
+
+.tratativa2DDL {
+	width: 45%;
+	min-width: 200px;
+}
+
+.tratativa3DDL {
+	width: 30%;
+	min-width: 200px;
+}
+
+.hourTd {
+	width: 10%;
+	min-width: 120px;
+}
+
+.tratativaTdSpace {
+	padding-right: 15px;
+}
+
+.tratativaComment {
+	width: 100%;
+	padding-right: 10px;
+}
+
+.lineSpacer {
+	height: 5px;
+}
+
+.columnSpacer {
+	width: 15px;
+}
+
+.headerCell {
+	text-align: left;
+}
+
+.headerCell2 {
+	border-width: 1px;
+	border-color: darkgray;
+	border-style: solid;
+	text-align: left;
+	height: 14px;
+}
+
+.unspacedTable {
+	border-left: 0;
+	border-right: 0;
+	border-spacing: 0;
+}
+
+.InputsSeparatorPadding10 {
+	padding: 10px;
+}
+
+table[data-radiobuttonOption] tr > td > label.checkList-radioLabelRed,
+#OctTable tr > td > label.checkList-radioLabelRed,
+#MobilTable tr > td > label.checkList-radioLabelRed {
+	color: red;
+}
+
+table[data-radiobuttonOption] tr > td > label.checkList-radioLabelGreen,
+#OctTable tr > td > label.checkList-radioLabelGreen,
+#MobilTable tr > td > label.checkList-radioLabelGreen {
+	color: green;
+}
+
+table[data-radiobuttonOption] tr > td > label.checkList-radioLabelGray,
+#OctTable tr > td > label.checkList-radioLabelGray,
+#MobilTable tr > td > label.checkList-radioLabelGray {
+	color: darkgray;
+}
+
+table[data-radiobuttonOption] tr > td.checkList-RBoption,
+#OctTable tr > td.checkList-RBoption,
+#MobilTable tr > td.checkList-RBoption {
+	text-align: center;
+}
+
+.button {
+	border: none;
+	background-color: #878787;
+	color: #FFFFFF;
+	padding: 4px 25px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.dotNetTablePaging tr:last-child td table tr td {
+	width: 15px;
+	text-align: center;
+}
+
+	.dotNetTablePaging tr:last-child td table tr td a {
+		width: 100%;
+		height: 100%;
+		display: block
+	}
+
+.NoWrap tr th, .NoWrap tr td{
+	white-space: nowrap;
+}
+
+.dataTable th{
+    font-weight: 500!important;
+}

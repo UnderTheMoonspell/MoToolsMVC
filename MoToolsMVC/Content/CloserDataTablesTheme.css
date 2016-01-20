@@ -1,0 +1,40 @@
+﻿.dataTables_processing {
+    z-index: 20;
+}
+
+.dataTable th, .dataTable td {
+    white-space: nowrap;
+}
+
+.noOverflow {
+    overflow: hidden !important;
+}
+
+div.dataTables_wrapper {
+    margin: 0 auto;
+}
+
+.DTFC_LeftBodyLiner {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+.dataTable thead tr th:focus {
+    border-color: none;
+}
+
+.emptyDataText {
+    text-align: center;
+}
+
+.dataTables_length {
+    font-size: 8pt;
+    font-family: Trebuchet MS,Verdana,Sans-Serif;
+    text-transform: none;
+    font-weight:normal;
+}
+
+.dataTables_lengthMyTitle {
+    display: inline-block;
+    float:right;
+}

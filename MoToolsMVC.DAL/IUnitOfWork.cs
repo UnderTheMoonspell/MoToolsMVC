@@ -1,4 +1,5 @@
 ﻿using MoToolsMVC.DAL.Menu;
+using MoToolsMVC.DAL.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace MoToolsMVC.DAL
     {
         void Commit();
         IMenuRepository MenuRepository { get; }
+        IUserRepository UserRepository { get; }
     }
 }

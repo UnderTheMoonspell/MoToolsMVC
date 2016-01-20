@@ -1,0 +1,110 @@
+﻿body {
+    background-color: #606060;
+    font-family: 'Segoe UI Semibold';
+}
+
+.login-form {
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 100px;
+    line-height: 100px;
+    width: 350px;
+    margin: 75px auto;
+}
+
+.input-container {
+    width: 450px;
+    display: table;
+    margin-bottom: 10px;
+}
+
+    .input-container .input {
+        display: table-cell;
+        width: 100%;
+    }
+
+    .input-container .label {
+        width: 70px;
+        margin-right: 10px;
+        display: inline-block;
+        font-size: 15px;
+        text-align: right;
+        color: lightgrey;
+        text-shadow: 1px 1px black;
+    }
+
+.input input {
+    width: 375px;
+    height: 40px;
+    padding: 10px 30px 10px 15px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    border: 0;
+    color: white;
+    background: #333;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    behavior: url('/Scripts/CSS3Pie/PIE.htc');
+}
+
+    .input input:focus {
+        outline: none;
+        border: 1px solid #9ecaed;
+        -webkit-box-shadow: inset 0 0 3px 3px #9ecaed;
+        box-shadow: inset 0 0 3px 3px #9ecaed;
+        behavior: url('/Scripts/CSS3Pie/PIE.htc');
+    }
+
+input::-ms-clear, input::-ms-reveal {
+    display: none;
+}
+
+.button-container {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -80px;
+    left: 425px;
+}
+
+    .button-container .login-button {
+        height: 50px;
+        width: 50px;
+        border: 0;
+        behavior: url('/Scripts/CSS3Pie/PIE.htc');
+        background-position-x: 50%;
+        background-position-y: 50%;
+        background-size: 160%;
+        -webkit-box-shadow: 0px 0px 10px 5px rgba(112,172,219,0.5);
+        -moz-box-shadow: 0px 0px 10px 5px rgba(112,172,219,0.5);
+        box-shadow: 0px 0px 10px 5px rgba(112,172,219,0.5);
+        behavior: url('/Scripts/CSS3Pie/PIE.htc');
+        -webkit-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
+        -moz-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
+        transition: all 100ms cubic-bezier(0.42, 0, 0.58, 1);
+        -webkit-border-radius: 25px 25px 25px 25px;
+        border-radius: 25px 25px 25px 25px;
+        background-image: url('../img/loginbutton.png');
+    }
+
+        .button-container .login-button:hover {
+            -webkit-box-shadow: 0px 0px 20px 5px rgba(112,172,219,0.5);
+            -moz-box-shadow: 0px 0px 20px 5px rgba(112,172,219,0.5);
+            box-shadow: 0px 0px 20px 5px rgba(112,172,219,0.5);
+            behavior: url('/Scripts/CSS3Pie/PIE.htc');
+        }
+
+#ErrorMsg {
+    font-size: 16px;
+    color: red;
+}

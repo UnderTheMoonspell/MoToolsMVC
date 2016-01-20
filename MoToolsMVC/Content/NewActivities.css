@@ -1,0 +1,259 @@
+﻿.grid1Comma5Cols {
+	width: 75%;
+}
+
+.grid2Cols {
+	width: 50%;
+}
+
+.grid3Cols {
+	width: 33.33%;
+}
+
+.grid4Cols {
+	width: 25%;
+}
+
+.grid5Cols {
+	width: 20%;
+}
+
+.grid6Cols {
+	width: 16.66%;
+}
+
+.grid8Cols {
+	width: 12.5%;
+}
+
+.grid20Cols {
+	width: 5%;
+}
+
+.hidden {
+	display: none;
+}
+
+.clipboardButton {
+	vertical-align: bottom;
+	height: 18px;
+	width: 18px;
+	background-color: #e5e9ec;
+	background-image: url('data:image/gif;base64,R0lGODlhEAAQAPUAAAAAAIiKhYmLhoqMh4yOiY2Pio6RiY+Qi5ialZialpqbl8PEw8TEw8bGxcfHxsjIx9TU1OPj4uPk4urq6uvr6+zs7O3t7O7u7e7u7u/v7vDw7/Ly8vPz8vPz8/T08/T09Pb29ff39vj49/n5+fr6+fr6+vv7+/z8+/7+/f7+/v///8zMzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACsALAAAAAAQABAAAAZ/wEJgSCwaVsiVQMVsOgNJpUqTqVY1GhU0udQ8FMVwoNDVDJxobfdRxrqzgW7mrHHY7/BlptF+51UXFnR3dlhqKRUMfW4lHXEjFBODhBghC3EcHht0bwSeBAEHAqMCKG8lCCUiEltIAiSMqCURQ1ECHyEgJyYQCaytSAQCYrUrQQA7');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.inputClass {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+div.divCaseSection {
+	font-size: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 6px;
+}
+
+div.divCaseSection.sidePadding{
+	padding: 6px 0 !important;
+}
+
+	div.divCaseSection > div.blockContainer > div.caseTitleContainer {
+		padding-bottom: 0;
+		padding: 5px;
+	}
+
+		div.divCaseSection > div.blockContainer > div.caseTitleContainer > div.caseTitle {
+			display: block;
+			font-size: 16px;
+            font-weight: 500;
+			margin-top: 5px;
+			margin-bottom: 3px;
+			padding-bottom: 0;
+			border-bottom: 1px solid #3BDDFF;
+            color: #ff8f21;
+			text-transform: capitalize;
+			background: none;
+			border-left: none;
+			border-right: none;
+			text-align: left;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+    div.divCaseSection > div.blockContainer > div.labelInputContainer > div.caseTitleContainer {
+		padding-bottom: 0;
+		padding: 5px;
+	}
+
+    div.labelInputContainer > div.caseTitleContainer > div.caseTitle {
+			display: block;
+			font-size: 14px;
+            font-weight: 500;
+			margin-top: 5px;
+			margin-bottom: 3px;
+			padding-bottom: 0;
+			border-bottom: 1px solid #3BDDFF;
+            color: #ff8f21;
+			text-transform: capitalize;
+			background: none;
+			border-left: none;
+			border-right: none;
+			text-align: left;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+	div.divCaseSection > div.blockContainer > div.labelInputContainer {
+		display: inline-block;
+		padding: 5px;
+		padding-bottom: 3px;
+		padding-top: 3px;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		vertical-align: top;
+		position: relative;
+	}
+
+		div.divCaseSection > div.blockContainer > div.labelInputContainer > label.labelClass, div.divCaseSection > div.blockContainer > div.labelInputTeamsContainer > label.labelClass {
+			font-size: 11px;
+			display: block;
+			margin-bottom: 2px;
+		}
+
+		div.divCaseSection > div.blockContainer > div.labelInputContainer > .inputClass, div.divCaseSection > div.blockContainer > div.labelInputTeamsContainer > .inputClass {
+			font-size: 12px;
+			display: block;
+			height: 18px;
+		}
+
+		div.divCaseSection > div.blockContainer > div.labelInputContainer > table.inputClass {
+			height: auto;
+		}
+
+		div.divCaseSection > div.blockContainer > div.labelInputContainer > textarea.inputClass, div.divCaseSection > div.blockContainer > div.labelInputTeamsContainer > textarea.inputClass {
+			resize: none;
+			height: 55px;
+		}
+
+		div.divCaseSection > div.blockContainer > div.labelInputContainer > .inputClass {
+			width: 100%;
+		}
+
+	div.divCaseSection > div.blockContainer > div.labelInputTeamsContainer {
+		padding: 5px;
+	}
+
+		div.divCaseSection > div.blockContainer > div.labelInputTeamsContainer > .inputClass {
+			width: 250px;
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+.dataTables_wrapper, .no-footer {
+	font-size: 11px;
+}
+
+
+.ms-parent.inputClass > .ms-choice {
+	height: 18px;
+	line-height: 29px;
+}
+
+	.ms-parent.inputClass > .ms-choice > span {
+		font-size: 12px;
+	}
+
+.ajax__combobox_itemlist {
+	position: fixed !important;
+}
+
+.ajax__combobox_inputcontainer {
+	width: 100%;
+	/*position:absolute !important;*/
+	top: 0px !important;
+	resize: none;
+	height: 18px;
+	font-size: 0px;
+}
+
+.ajax__combobox_textboxcontainer {
+	width: 100%;
+	height: 18px;
+}
+
+	.ajax__combobox_textboxcontainer > input {
+		width: 100%;
+		height: 18px;
+		font-size: 12px;
+	}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+	/*Chrome CSS here*/
+
+	.inputClass > .ajax__combobox_itemlist {
+		width: 200px !important;
+	}
+}
+
+.ajax__combobox_buttoncontainer {
+	height: 18px;
+}
+
+	.ajax__combobox_buttoncontainer > button {
+		border-style: none;
+		/*background-color:#FFFFFF;*/
+	}
+
+.ui-front { /*auto-complete do jquery-ui ficar em cima dos nossos pop-ups.*/
+	z-index: 999999;
+}
+
+.hideOverflowText {
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.autoComp_completionList {
+	border: solid 1px #444444;
+	margin: 0;
+	padding: 2px;
+	overflow: auto;
+	background-color: #FFFFFF;
+	font-size: 8pt;
+	cursor: default;
+}
+
+.autoComp_listItem {
+	color: #1C1C1C;
+}
+
+.autoComp_itemHighlighted {
+	background-color: #1E90FF;
+	color: white;
+}
+
+.historyPanel span{
+    padding: 5px;
+    display: block;
+    margin-top: 10px;
+    background-color: #DBDBDB;
+}
+
+.historyPanel{
+    padding: 5px 0 0 5px;
+    overflow-y: scroll;
+    max-height: 150px;
+    margin-bottom: 5px;
+}

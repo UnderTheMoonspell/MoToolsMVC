@@ -57,7 +57,16 @@
 
             $('#IMG_Hamburger_Menu').on('click', function () {
                 MenuController.HamburgerClicked();
-            })
+            });
+
+            $('#TD_MenuArea').hide();
+            if (MenuController.IsMenuOpen()) {
+                MenuController.openMenu();
+            }
+            else {
+                MenuController.closeMenu();
+            }
+            $('#TD_MenuArea').show();
         },
 
         SearchClicked: function () {
@@ -120,48 +129,13 @@
         },
 
         HamburgerClicked: function (callback) {
-            var url = window.MoToolsRootUrl + "/WebServices/Menu.asmx/MenuCollapsed";
+            //var url = window.MoToolsRootUrl + "/WebServices/Menu.asmx/MenuCollapsed";
 
             if (MenuController.IsMenuOpen()) {
-
-                $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
-                    width: MenuController.minimizedWidth
-                }, 500, function completed() {
-                    $("#menuInitialContent").hide();
-                    callback && callback();
-                    MenuController.AfterMenuClickedEvents();
-
-                    MenuController.SetVerticalMenu();
-
-                    MenuController.SwapElements(function () {
-                        $("#IMG_Search_Menu").removeAttr("style");
-                        $("#IMG_Hamburger_Menu").removeAttr("style");
-                        $("#IMG_Search_Menu").before($("#IMG_Hamburger_Menu"));
-                    });
-                });
-
-                //MenuController.CallWSMenuCollapsed(true, url);
-                MenuController.setMenuStatusCookie(false);
-                //$("#HF_MenuIsCollapsed").val(true);
+                MenuController.closeMenu(callback);
             }
             else {
-                $("#menuInitialContent").show();
-                MenuController.SetHorizontalMenu();
-                $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
-                    width: MenuController.initialWidth
-                }, 750, function completed() {
-                    callback && callback();
-                    MenuController.AfterMenuClickedEvents();
-
-                    MenuController.SwapElements(function () {
-                        $("#IMG_Search_Menu").removeAttr("style");
-                        $("#IMG_Hamburger_Menu").removeAttr("style");
-                        $("#IMG_Hamburger_Menu").before($("#IMG_Search_Menu"));
-                    });
-                });
-                MenuController.setMenuStatusCookie(true);
-                //MenuController.CallWSMenuCollapsed(false, url);
-                $("#HF_MenuIsCollapsed").val(false);
+                MenuController.openMenu(callback);
             }
         },
 
@@ -226,8 +200,47 @@
         setMenuStatusCookie: function (state) {
             eraseCookie('isMenuOpen');
             createCookie('isMenuOpen', state, 1);
-        }
+        },
 
+        closeMenu: function (callback) {
+            $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
+                width: MenuController.minimizedWidth
+            }, 500, function completed() {
+                $("#menuInitialContent").hide();
+                callback && callback();
+                MenuController.AfterMenuClickedEvents();
+
+                MenuController.SetVerticalMenu();
+
+                MenuController.SwapElements(function () {
+                    $("#IMG_Search_Menu").removeAttr("style");
+                    $("#IMG_Hamburger_Menu").removeAttr("style");
+                    $("#IMG_Search_Menu").before($("#IMG_Hamburger_Menu"));
+                });
+            });
+
+            MenuController.setMenuStatusCookie(false);
+        },
+
+        openMenu: function (callback) {
+            $("#menuInitialContent").show();
+            MenuController.SetHorizontalMenu();
+            $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
+                width: MenuController.initialWidth
+            }, 750, function completed() {
+                callback && callback();
+                MenuController.AfterMenuClickedEvents();
+
+                MenuController.SwapElements(function () {
+                    $("#IMG_Search_Menu").removeAttr("style");
+                    $("#IMG_Hamburger_Menu").removeAttr("style");
+                    $("#IMG_Hamburger_Menu").before($("#IMG_Search_Menu"));
+                });
+            });
+            MenuController.setMenuStatusCookie(true);
+            //MenuController.CallWSMenuCollapsed(false, url);
+            $("#HF_MenuIsCollapsed").val(false);
+        }
     }
 
     MenuController.init();

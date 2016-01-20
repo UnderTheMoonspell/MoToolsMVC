@@ -9,7 +9,7 @@ namespace MoToolsMVC.BLL.Menu
 {
     public class MenuService : IMenuService
     {
-        private IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork { get; set; }
         private string _rootUrl { get; set; }
         public MenuService(IUnitOfWork unitOfWork)
         {

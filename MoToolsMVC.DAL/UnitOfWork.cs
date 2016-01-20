@@ -1,4 +1,5 @@
 ﻿using MoToolsMVC.DAL.Menu;
+using MoToolsMVC.DAL.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MoToolsMVC.DAL
     {
         private RioJaneiroEntities _dbContext;
         private IMenuRepository _menuRepository;
+        private IUserRepository _userRepository;
 
         public UnitOfWork()
         {
@@ -22,6 +24,7 @@ namespace MoToolsMVC.DAL
             _dbContext.SaveChanges();
         }
 
+        #region Repositories
         public IMenuRepository MenuRepository
         {
             get
@@ -34,6 +37,19 @@ namespace MoToolsMVC.DAL
             }
         }
 
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (this._userRepository == null)
+                {
+                    this._userRepository = new UserRepository(_dbContext);
+                }
+                return _userRepository;
+            }
+        }
+
+        #endregion
         #region IDisposable
 
         public void Dispose()

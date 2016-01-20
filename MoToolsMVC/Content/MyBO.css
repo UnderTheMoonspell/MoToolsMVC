@@ -1,0 +1,60 @@
+﻿body, a, select, input, textarea, .lblHeader, .lblred, .ddlExtender {
+    font-family: Trebuchet MS,Verdana,Sans-Serif;
+}
+
+body {
+    font-size: 8pt;
+    background: #ffffff;
+}
+
+a, select, input, textarea {
+    font-size: 10px;
+    color: #000000;
+}
+
+.lblHeader {
+    font-size: 12px;
+    color: #666666;
+    font-weight: bold;
+}
+
+.lblred {
+    font-size: 10px;
+    color: #FF0000;
+}
+
+.ddlExtender {
+    font-size: 8px;
+    color: #000000;
+}
+
+.divBegining {
+    float: left;
+    padding-left: 8px;
+}
+
+.gendiv {
+    float: left;
+}
+
+/* HTML Editor */
+.ajax__htmleditor_editor_bottomtoolbar {
+    display: none;
+}
+
+/* Modal PopUp */
+/* POPUPS HOVER */
+
+.modalBackground {
+    background-color: #CCCCFF;
+    filter: alpha(opacity=80);
+    opacity: 0.1;
+}
+
+.ModalWindow {
+    border: solid 1px #c0c0c0;
+    background: #f0f0f0;
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    top: -1000px;
+}

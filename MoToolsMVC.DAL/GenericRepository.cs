@@ -23,6 +23,11 @@ namespace MoToolsMVC.DAL
             _dbSet.Add(entity);
         }
 
+        public void Update(T entity)
+        {
+            _dbcontext.Entry(entity).State = EntityState.Modified;
+        }
+
         public virtual void Delete(int id)
         {
             T objectToDelete = _dbSet.Find(id);
@@ -48,10 +53,11 @@ namespace MoToolsMVC.DAL
             return _dbSet;
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(object id)
         {
             return _dbSet.Find(id);
         }
+
         #endregion
     }
 }

@@ -4,14 +4,158 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CON_EvalyzeMotools_DEV_201504Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CON_EvalyzeMotools_DEV_201504Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="PK_ID" />
+          </Key>
+          <Property Name="PK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Desc" Type="nvarchar" MaxLength="150" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="RoleLevel" Type="int" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="smallint" />
+          <Property Name="Guid" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UsersRCA">
+          <Key>
+            <PropertyRef Name="UsernameRCA" />
+          </Key>
+          <Property Name="UsernameRCA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="255" />
+          <Property Name="DireccaoID" Type="int" />
+          <Property Name="PrestadorID" Type="int" />
+          <Property Name="PrestadorRCAID" Type="int" />
+          <Property Name="LinhaID" Type="int" />
+          <Property Name="CategoriaID" Type="int" />
+          <Property Name="LocalizacaoID" Type="int" />
+          <Property Name="Active" Type="int" />
+          <Property Name="Pass" Type="varchar" MaxLength="150" />
+          <Property Name="UserAlias" Type="varchar" MaxLength="50" />
+          <Property Name="Funcionario" Type="varchar" MaxLength="50" />
+          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="FK_Group" Type="int" />
+          <Property Name="UsernameSFA" Type="varchar" MaxLength="50" />
+          <Property Name="FK_Role" Type="int" Nullable="false" />
+          <Property Name="LastLogin" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="FK_Status" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StatusModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="CanSearch" Type="bit" Nullable="false" />
+          <Property Name="InactivationDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="LastEditedBy" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="AllowMultipleLogins" Type="bit" Nullable="false" />
+          <Property Name="FK_ParentUser" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__UsersRCA__Create__4376EBDB">
+          <End Role="UsersRCA" Type="Self.UsersRCA" Multiplicity="0..1" />
+          <End Role="UsersRCA1" Type="Self.UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__FK_Gro__5ECA0095">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="UsersRCA" Type="Self.UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="UsersRCA">
+              <PropertyRef Name="FK_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__FK_Rol__5FBE24CE">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="UsersRCA" Type="Self.UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UsersRCA">
+              <PropertyRef Name="FK_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__LastEd__446B1014">
+          <End Role="UsersRCA" Type="Self.UsersRCA" Multiplicity="0..1" />
+          <End Role="UsersRCA1" Type="Self.UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersRCA_ParentUser">
+          <End Role="UsersRCA" Type="Self.UsersRCA" Multiplicity="0..1" />
+          <End Role="UsersRCA1" Type="Self.UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="FK_ParentUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="Get_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="varchar" Mode="In" />
         </Function>
         <Function Name="Get_Menu_MVC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="CON_EvalyzeMotools_DEV_201504ModelStoreContainer" />
+        <EntityContainer Name="CON_EvalyzeMotools_DEV_201504ModelStoreContainer">
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersRCA" EntityType="Self.UsersRCA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__UsersRCA__Create__4376EBDB" Association="Self.FK__UsersRCA__Create__4376EBDB">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__FK_Gro__5ECA0095" Association="Self.FK__UsersRCA__FK_Gro__5ECA0095">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__FK_Rol__5FBE24CE" Association="Self.FK__UsersRCA__FK_Rol__5FBE24CE">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__LastEd__446B1014" Association="Self.FK__UsersRCA__LastEd__446B1014">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersRCA_ParentUser" Association="Self.FK_UsersRCA_ParentUser">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -21,8 +165,32 @@
           <Parameter Name="Username" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Get_Menu_MVC" ReturnType="Collection(CON_EvalyzeMotools_DEV_201504Model.Get_Menu_MVC_Result)">
-            <Parameter Name="Username" Mode="In" Type="String" />
+          <Parameter Name="Username" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Groups" EntityType="CON_EvalyzeMotools_DEV_201504Model.Groups" />
+          <EntitySet Name="Role" EntityType="CON_EvalyzeMotools_DEV_201504Model.Role" />
+          <EntitySet Name="Status" EntityType="CON_EvalyzeMotools_DEV_201504Model.Status" />
+          <EntitySet Name="UsersRCA" EntityType="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" />
+          <AssociationSet Name="FK__UsersRCA__FK_Gro__5ECA0095" Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Gro__5ECA0095">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__FK_Rol__5FBE24CE" Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Rol__5FBE24CE">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__Create__4376EBDB" Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__Create__4376EBDB">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRCA__LastEd__446B1014" Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__LastEd__446B1014">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersRCA_ParentUser" Association="CON_EvalyzeMotools_DEV_201504Model.FK_UsersRCA_ParentUser">
+            <End Role="UsersRCA" EntitySet="UsersRCA" />
+            <End Role="UsersRCA1" EntitySet="UsersRCA" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Get_Menu_Result">
           <Property Type="Int32" Name="ID" Nullable="true" />
@@ -44,6 +212,135 @@
           <Property Type="Int32" Name="ParentID" Nullable="true" />
           <Property Type="Int32" Name="Ordem" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="PK_ID" />
+          </Key>
+          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UsersRCA" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Gro__5ECA0095" FromRole="Groups" ToRole="UsersRCA" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="RoleLevel" Type="Int32" />
+          <NavigationProperty Name="UsersRCA" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Rol__5FBE24CE" FromRole="Role" ToRole="UsersRCA" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Int16" />
+          <Property Name="Guid" Type="Guid" />
+        </EntityType>
+        <EntityType Name="UsersRCA">
+          <Key>
+            <PropertyRef Name="UsernameRCA" />
+          </Key>
+          <Property Name="UsernameRCA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DireccaoID" Type="Int32" />
+          <Property Name="PrestadorID" Type="Int32" />
+          <Property Name="PrestadorRCAID" Type="Int32" />
+          <Property Name="LinhaID" Type="Int32" />
+          <Property Name="CategoriaID" Type="Int32" />
+          <Property Name="LocalizacaoID" Type="Int32" />
+          <Property Name="Active" Type="Int32" />
+          <Property Name="Pass" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="UserAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Funcionario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_Group" Type="Int32" />
+          <Property Name="UsernameSFA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_Role" Type="Int32" Nullable="false" />
+          <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FK_Status" Type="Guid" Nullable="false" />
+          <Property Name="StatusModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CanSearch" Type="Boolean" Nullable="false" />
+          <Property Name="InactivationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastEditedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="AllowMultipleLogins" Type="Boolean" Nullable="false" />
+          <Property Name="FK_ParentUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Groups" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Gro__5ECA0095" FromRole="UsersRCA" ToRole="Groups" />
+          <NavigationProperty Name="Role" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Rol__5FBE24CE" FromRole="UsersRCA" ToRole="Role" />
+          <NavigationProperty Name="UsersRCA1" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__Create__4376EBDB" FromRole="UsersRCA" ToRole="UsersRCA1" />
+          <NavigationProperty Name="UsersRCA2" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__Create__4376EBDB" FromRole="UsersRCA1" ToRole="UsersRCA" />
+          <NavigationProperty Name="UsersRCA11" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__LastEd__446B1014" FromRole="UsersRCA" ToRole="UsersRCA1" />
+          <NavigationProperty Name="UsersRCA3" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__LastEd__446B1014" FromRole="UsersRCA1" ToRole="UsersRCA" />
+          <NavigationProperty Name="UsersRCA12" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK_UsersRCA_ParentUser" FromRole="UsersRCA" ToRole="UsersRCA1" />
+          <NavigationProperty Name="UsersRCA4" Relationship="CON_EvalyzeMotools_DEV_201504Model.FK_UsersRCA_ParentUser" FromRole="UsersRCA1" ToRole="UsersRCA" />
+        </EntityType>
+        <Association Name="FK__UsersRCA__FK_Gro__5ECA0095">
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.Groups" Role="Groups" Multiplicity="0..1" />
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="UsersRCA">
+              <PropertyRef Name="FK_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__FK_Rol__5FBE24CE">
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UsersRCA">
+              <PropertyRef Name="FK_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__Create__4376EBDB">
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA" Multiplicity="0..1" />
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRCA__LastEd__446B1014">
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA" Multiplicity="0..1" />
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="LastEditedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersRCA_ParentUser">
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA" Multiplicity="0..1" />
+          <End Type="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Role="UsersRCA1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersRCA">
+              <PropertyRef Name="UsernameRCA" />
+            </Principal>
+            <Dependent Role="UsersRCA1">
+              <PropertyRef Name="FK_ParentUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -78,6 +375,69 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="CON_EvalyzeMotools_DEV_201504Model.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="CON_EvalyzeMotools_DEV_201504Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleLevel" ColumnName="RoleLevel" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="CON_EvalyzeMotools_DEV_201504Model.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersRCA">
+            <EntityTypeMapping TypeName="CON_EvalyzeMotools_DEV_201504Model.UsersRCA">
+              <MappingFragment StoreEntitySet="UsersRCA">
+                <ScalarProperty Name="FK_ParentUser" ColumnName="FK_ParentUser" />
+                <ScalarProperty Name="AllowMultipleLogins" ColumnName="AllowMultipleLogins" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="LastEditedBy" ColumnName="LastEditedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="InactivationDate" ColumnName="InactivationDate" />
+                <ScalarProperty Name="CanSearch" ColumnName="CanSearch" />
+                <ScalarProperty Name="StatusModifiedDate" ColumnName="StatusModifiedDate" />
+                <ScalarProperty Name="FK_Status" ColumnName="FK_Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+                <ScalarProperty Name="FK_Role" ColumnName="FK_Role" />
+                <ScalarProperty Name="UsernameSFA" ColumnName="UsernameSFA" />
+                <ScalarProperty Name="FK_Group" ColumnName="FK_Group" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="Funcionario" ColumnName="Funcionario" />
+                <ScalarProperty Name="UserAlias" ColumnName="UserAlias" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LocalizacaoID" ColumnName="LocalizacaoID" />
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="LinhaID" ColumnName="LinhaID" />
+                <ScalarProperty Name="PrestadorRCAID" ColumnName="PrestadorRCAID" />
+                <ScalarProperty Name="PrestadorID" ColumnName="PrestadorID" />
+                <ScalarProperty Name="DireccaoID" ColumnName="DireccaoID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UsernameRCA" ColumnName="UsernameRCA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

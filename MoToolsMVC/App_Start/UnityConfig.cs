@@ -40,6 +40,7 @@ namespace MoToolsMVC.App_Start
             // TODO: Register your types here
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IMenuService, MenuService>();
+            container.RegisterType<IUserService, UserService>();
         }
     }
 }

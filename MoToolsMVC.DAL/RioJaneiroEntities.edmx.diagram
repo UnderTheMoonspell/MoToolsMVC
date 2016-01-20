@@ -4,7 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="845f7fbce34445d8a41f545752ce01bd" Name="Diagram1" />
+      <Diagram DiagramId="845f7fbce34445d8a41f545752ce01bd" Name="Diagram1" >
+        <EntityTypeShape EntityType="CON_EvalyzeMotools_DEV_201504Model.Groups" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CON_EvalyzeMotools_DEV_201504Model.Role" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="CON_EvalyzeMotools_DEV_201504Model.Status" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CON_EvalyzeMotools_DEV_201504Model.UsersRCA" Width="1.5" PointX="3" PointY="1.25" />
+        <AssociationConnector Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Gro__5ECA0095" />
+        <AssociationConnector Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__FK_Rol__5FBE24CE" />
+        <AssociationConnector Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__Create__4376EBDB" />
+        <AssociationConnector Association="CON_EvalyzeMotools_DEV_201504Model.FK__UsersRCA__LastEd__446B1014" />
+        <AssociationConnector Association="CON_EvalyzeMotools_DEV_201504Model.FK_UsersRCA_ParentUser" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -1,0 +1,70 @@
+﻿.alertify-message {
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 25px;
+    margin-top: 3px;
+    color: #3b3838;
+}
+
+.alertify-button, .alertify-button:hover, .alertify-button:active, .alertify-button:visited {
+    margin-left: 10px;
+}
+
+.alertify-button-cancel, .alertify-button-cancel:hover, .alertify-button-cancel:focus, .alertify-button-ok, .alertify-button-ok:hover, .alertify-button-ok:focus {
+    border: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    height: 35px;
+    width: 105px;
+    text-transform: uppercase;
+    text-shadow: none;
+    background-image: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+    .alertify-button-cancel, .alertify-button-cancel:hover, .alertify-button-cancel:focus {
+        background-color: #d95653;
+    }
+
+    .alertify-button-ok, .alertify-button-ok:hover, .alertify-button-ok:focus {
+        background-color: #00c27b;
+    }
+
+.alertify-button {
+    padding: 0;
+}
+
+.alertify {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border: 8px solid #FFFFFF;
+    background-color: #ebebeb;
+    width: 600px;
+    margin-left: -300px;
+    top: 25%;
+}
+
+.alertify-cover {
+    background-color: #252525;
+    opacity: 0.67;
+    filter: alpha(opacity=67); /* Temos de ter isto IE8 */
+}
+
+.alertify-dialog {
+    padding: 12px;
+}
+
+.alertify-buttons {
+    margin-bottom: 6px;
+}
+
+.alertify-title {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 1px;
+}

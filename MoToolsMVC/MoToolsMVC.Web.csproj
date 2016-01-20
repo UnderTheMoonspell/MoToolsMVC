@@ -219,6 +219,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,14 +244,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="Content\buttons.css" />
-    <Content Include="Content\login.css" />
+    <Content Include="Content\MyBO.css" />
     <Content Include="Content\side-menu.css" />
-    <Content Include="Content\site.css" />
     <Content Include="Content\top-bar.css" />
     <Content Include="Content\top-menu.css" />
     <Content Include="Content\vendor\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap.min.css" />
-    <Content Include="Content\vendor\jqtree.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -376,8 +375,16 @@
     <Content Include="img\WhiteFolder.png" />
     <Content Include="img\yellow.png" />
     <Content Include="img\ZONLogo.png" />
+    <Content Include="Content\CloserAlertifyTheme.css" />
+    <Content Include="Content\CloserDataTablesTheme.css" />
+    <Content Include="Content\CloserMultiSelector.css" />
+    <Content Include="Content\FormSeparators.css" />
     <Content Include="Scripts\helpers\helpers.js" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\loginV2.css" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Content\NewActivities.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\menu\menu.js" />
@@ -433,6 +440,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutOriginal.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

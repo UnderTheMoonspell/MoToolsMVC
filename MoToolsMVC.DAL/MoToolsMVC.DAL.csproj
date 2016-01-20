@@ -57,6 +57,9 @@
     <Compile Include="Get_Menu_Result.cs">
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Groups.cs">
+      <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Menu\IMenuRepository.cs" />
@@ -77,7 +80,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RioJaneiroEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UsersRCA.cs">
+      <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\IUserRepository.cs" />
+    <Compile Include="User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

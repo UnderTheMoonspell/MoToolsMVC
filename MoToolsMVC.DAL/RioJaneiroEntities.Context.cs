@@ -27,6 +27,10 @@ namespace MoToolsMVC.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Groups> Groups { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<UsersRCA> UsersRCA { get; set; }
     
         public virtual ObjectResult<Get_Menu_Result> Get_Menu(string username)
         {

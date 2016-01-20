@@ -10,9 +10,10 @@ namespace MoToolsMVC.DAL
     public interface IGenericRepository<T>
     {
         void Insert(T entity);
+        void Update(T entity);
         void Delete(int id);
         IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate);
         IQueryable<T> GetAll();
-        T GetById(int id);
+        T GetById(object id);
     }
 }

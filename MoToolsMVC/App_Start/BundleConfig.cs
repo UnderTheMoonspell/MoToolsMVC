@@ -33,16 +33,23 @@ namespace MoToolsMVC
             bundles.Add(new ScriptBundle("~/bundles/Helpers").Include(
           "~/Scripts/helpers/helpers.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css",
-                      "~/Content/side-menu.css",
-                      "~/Content/top-menu.css",
-                      "~/Content/top-bar.css",
-                      "~/Content/buttons.css",
-                      "~/Content/vendor/jqtree.cs"
+            bundles.Add(new StyleBundle("~/CSS/SideMenu").Include(
+                      "~/Content/side-menu.css"
                       ));
 
-
+            bundles.Add(new StyleBundle("~/CSS/MoTools").Include(
+                "~/Content/CloserAlertifyTheme.css",
+                "~/Content/CloserDataTablesTheme.css",
+                "~/Content/CloserMultiSelector.css",
+                "~/Content/FormSeparators.css",
+                //"~/CSS/site.css",
+                "~/Content/site.css",
+                "~/Content/top-bar.css",
+                "~/Content/top-menu.css",
+                "~/Content/buttons.css",
+                "~/Content/NewActivities.css",
+                "~/Content/MyBO.css"
+            ));
         }
     }
 }
