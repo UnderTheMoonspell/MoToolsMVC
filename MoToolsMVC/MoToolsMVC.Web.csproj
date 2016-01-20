@@ -376,6 +376,8 @@
     <Content Include="img\WhiteFolder.png" />
     <Content Include="img\yellow.png" />
     <Content Include="img\ZONLogo.png" />
+    <Content Include="Scripts\helpers\helpers.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\menu\menu.js" />

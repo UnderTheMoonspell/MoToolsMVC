@@ -100,8 +100,11 @@
         },
 
         IsMenuOpen: function () {
-            var isOpen = $("#HF_MenuIsCollapsed").val() == false || $("#HF_MenuIsCollapsed").val() == "false";
-            return isOpen;
+            var isOpen = readCookie('isMenuOpen');
+            if (!isOpen || isOpen == 'true') {
+                return true
+            }
+            return false;
         },
 
         SetVerticalMenu: function () {
@@ -137,8 +140,9 @@
                     });
                 });
 
-                MenuController.CallWSMenuCollapsed(true, url);
-                $("#HF_MenuIsCollapsed").val(true);
+                //MenuController.CallWSMenuCollapsed(true, url);
+                MenuController.setMenuStatusCookie(false);
+                //$("#HF_MenuIsCollapsed").val(true);
             }
             else {
                 $("#menuInitialContent").show();
@@ -155,8 +159,8 @@
                         $("#IMG_Hamburger_Menu").before($("#IMG_Search_Menu"));
                     });
                 });
-
-                MenuController.CallWSMenuCollapsed(false, url);
+                MenuController.setMenuStatusCookie(true);
+                //MenuController.CallWSMenuCollapsed(false, url);
                 $("#HF_MenuIsCollapsed").val(false);
             }
         },
@@ -218,6 +222,12 @@
 
             //$("#mainPanel_SLA_Management").trigger("resize");
         },
+
+        setMenuStatusCookie: function (state) {
+            eraseCookie('isMenuOpen');
+            createCookie('isMenuOpen', state, 1);
+        }
+
     }
 
     MenuController.init();
