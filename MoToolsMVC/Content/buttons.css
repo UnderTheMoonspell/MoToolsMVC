@@ -1,3 +1,8 @@
+/* display */
+.pause-button {
+  float: right; }
+
+/* colors */
 .mot-button {
   background-repeat: no-repeat;
   background-position-x: 5px;
@@ -5,8 +10,8 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 10px;
-  color: black;
-  background-color: white;
+  color: #000000;
+  background-color: #FFFFFF;
   padding: 0px 10px 0px 25px; }
 
 .mot-blue-button {
@@ -37,8 +42,7 @@
 
 .pause-button {
   background-image: url("../../img/Carregar.png");
-  margin-right: 7px;
-  float: right; }
+  margin-right: 7px; }
 
 .unlock-button {
   background-image: url("../../img/desbloquear.png"); }

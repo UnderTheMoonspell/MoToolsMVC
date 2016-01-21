@@ -1,0 +1,111 @@
+﻿@import "global.scss";
+
+.main-page-contax-colors {
+    background-image: url('../../img/topPageContaxColors.png');
+    background-repeat: no-repeat;
+    background-size: 100% 4px;
+    background-position: top center;
+    height: 9px;
+}
+
+.topBar, .logotipo-area {
+    height: 55px;
+}
+
+.username-area, .logout-area {
+    height: 35px;
+}
+
+.logotipo-area {
+    @extend %float-left;
+    background-image: url("../../img/ContaxNewLogo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 243px;
+}
+
+.username-area {
+    @extend %float-right;
+    background-color: $white;
+
+    .lbl-username {
+        color: $grey-dark-3;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    & > * {
+        margin-left: 12px;
+        margin-right: 12px;
+        vertical-align: middle;
+        display: inline-flex;
+    }
+
+    .user-avatar {
+        height: 30px;
+        width: 30px;
+    }
+
+    .user-container {
+        & > * {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .user-menu {
+            width: 20px;
+        }
+    }
+}
+
+.input-search {
+    border: 1px solid lightgrey;
+    color: $black;
+    font-size: 14px;
+    width: 190px;
+    padding: 4px 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: none;
+    -webkit-transition: all 0.15s ease-in 0s;
+    -moz-transition: all 0.15s ease-in 0s;
+    -o-transition: all 0.15s ease-in 0s;
+    transition: all 0.15s ease-in 0s;
+}
+
+.search-error {
+    border-color: $red !important;
+}
+
+.user-container {
+    .user-info {
+        .user-name {
+            color: $grey-1;
+            font-size: 17px;
+            font-family: 'Segoe UI Semibold';
+        }
+
+        .user-job {
+            color: $grey-2;
+            font-size: 12px;
+            font-family: 'Segoe UI Semilight';
+        }
+    }
+
+    .user-open-menu:after {
+        font-family: entyporegular;
+        content: '\25BE';
+        font-size: 30px;
+        color: $grey-1;
+    }
+}
+
+.logout-area {
+    margin-left: 0px;
+    margin-right: 20px;
+}

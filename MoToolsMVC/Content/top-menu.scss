@@ -1,0 +1,30 @@
+@import "global.scss";
+
+.tabs-container {
+    background-color: $blue-dark-1;
+    padding: 5px 0px;
+}
+
+#GV_Tabs {
+    @extend %float-left;
+
+    &, tr td {
+        border: 0;
+    }
+
+    .tab {
+        background-color: $blue-dark-1;
+        padding: 5px 20px;
+        margin: 5px 0;
+        font-size: 14px;
+        color: $white;
+        font-family: 'Segoe UI';
+        border: 0;
+        border-right: 2px #40546C solid;
+        cursor: pointer;
+
+        &.selected {
+            color: $blue-3;
+        }
+    }
+}
