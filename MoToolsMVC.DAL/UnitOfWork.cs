@@ -1,5 +1,4 @@
 ﻿using MoToolsMVC.DAL.Menu;
-using MoToolsMVC.DAL.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +42,7 @@ namespace MoToolsMVC.DAL
             {
                 if (this._userRepository == null)
                 {
-                    this._userRepository = new UserRepository(_dbContext);
+                    this._userRepository = new GenericRepository<UsersRCA>(_dbContext);
                 }
                 return _userRepository;
             }

@@ -90,8 +90,6 @@
     <Compile Include="UsersRCA.cs">
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="User\IUserRepository.cs" />
-    <Compile Include="User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
