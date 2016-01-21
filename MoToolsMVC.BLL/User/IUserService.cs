@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoToolsMVC.BLL.Menu
 {
-    public interface IUserService
+    public interface IUserService : IMoToolsService
     {
         UsersRCA GetUser(string username);
     }

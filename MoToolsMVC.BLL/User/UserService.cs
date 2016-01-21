@@ -20,5 +20,22 @@ namespace MoToolsMVC.BLL.Menu
             UsersRCA user = _unitOfWork.UserRepository.GetById(username);
             return user;
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_unitOfWork != null)
+                {
+                    _unitOfWork.Dispose();
+                }
+            }
+        }
     }
 }

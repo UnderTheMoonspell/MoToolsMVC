@@ -7,6 +7,6 @@ namespace MoToolsMVC.DAL.User
 {
     public interface IUserRepository : IGenericRepository<UsersRCA>
     {
-        UsersRCA GetUser(string username);
+        //UsersRCA GetUser(string username);
     }
 }

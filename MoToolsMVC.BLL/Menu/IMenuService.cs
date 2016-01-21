@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoToolsMVC.BLL.Menu
 {
-    public interface IMenuService
+    public interface IMenuService : IMoToolsService
     {
         MenuTree GetMenuByUser(string username, string rootUrl);
     }
