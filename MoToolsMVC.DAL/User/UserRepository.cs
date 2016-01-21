@@ -8,22 +8,11 @@ using System.Data.Entity;
 
 namespace MoToolsMVC.DAL.User
 {
-    public class UserRepository : GenericRepository<UsersRCA>, IUserRepository
+    public class UserRepository : GenericRepository<UsersRCA>
     {
         public UserRepository(RioJaneiroEntities dbcontext) : base(dbcontext)
         {
 
         }
-
-        public UsersRCA GetUser(string username)
-        {
-            var user = _dbSet.Where(x => x.UsernameRCA == username).First();
-            return user;
-        }
-
-        //public override UsersRCA GetById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

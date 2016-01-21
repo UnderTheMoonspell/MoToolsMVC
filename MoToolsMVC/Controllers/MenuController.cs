@@ -28,6 +28,12 @@ namespace MoToolsMVC.Controllers
             return Json(menuTree, JsonRequestBehavior.AllowGet);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            _menuservice.Dispose();
+            base.Dispose(disposing);
+        }
+
     }
 
 }

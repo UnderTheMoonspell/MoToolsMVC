@@ -12,7 +12,7 @@ namespace MoToolsMVC.DAL
     {
         private RioJaneiroEntities _dbContext;
         private IMenuRepository _menuRepository;
-        private IUserRepository _userRepository;
+        private IGenericRepository<UsersRCA> _userRepository;
 
         public UnitOfWork()
         {
@@ -37,7 +37,7 @@ namespace MoToolsMVC.DAL
             }
         }
 
-        public IUserRepository UserRepository
+        public IGenericRepository<UsersRCA> UserRepository
         {
             get
             {

@@ -22,5 +22,11 @@ namespace MoToolsMVC.Controllers
             UsersRCA user = _userService.GetUser(username);
             return View(user);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            _userService.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }

@@ -11,7 +11,8 @@ namespace MoToolsMVC.DAL
     public interface IUnitOfWork
     {
         void Commit();
+        void Dispose();
         IMenuRepository MenuRepository { get; }
-        IUserRepository UserRepository { get; }
+        IGenericRepository<UsersRCA> UserRepository { get; }
     }
 }

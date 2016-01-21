@@ -57,5 +57,22 @@ namespace MoToolsMVC.BLL.Menu
                 BuildMenu(menuTree, menuList, menu.ID, node, menu.BDTEamID.Value);
             }
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_unitOfWork != null)
+                {
+                    _unitOfWork.Dispose();
+                }
+            }
+        }  
     }
 }
