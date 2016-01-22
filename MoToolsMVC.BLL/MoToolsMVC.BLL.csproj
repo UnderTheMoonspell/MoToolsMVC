@@ -44,7 +44,6 @@
     <Compile Include="CaseDDLOptions\CaseDDLOption.cs" />
     <Compile Include="IServiceUnitOfWork.cs" />
     <Compile Include="Menu\IMenuService.cs" />
-    <Compile Include="Menu\IMoToolsService.cs" />
     <Compile Include="Menu\NodeConstrutor.cs" />
     <Compile Include="IMoToolsService.cs" />
     <Compile Include="Menu\MenuNode.cs" />
