@@ -11,6 +11,7 @@ namespace MoToolsMVC.BLL.Menu
     {
         private IUnitOfWork _unitOfWork { get; set; }
         private string _rootUrl { get; set; }
+
         public MenuService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;           

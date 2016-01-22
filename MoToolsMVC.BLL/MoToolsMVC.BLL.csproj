@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -40,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaseDDLOptions\CaseDDLOption.cs" />
+    <Compile Include="IServiceUnitOfWork.cs" />
     <Compile Include="Menu\IMenuService.cs" />
-    <Compile Include="Menu\IMoToolsService.cs" />
+    <Compile Include="IMoToolsService.cs" />
     <Compile Include="Menu\MenuNode.cs" />
     <Compile Include="Menu\MenuService.cs" />
     <Compile Include="Menu\MenuTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CaseDDLOptions\ICaseDDLOptionsService.cs" />
+    <Compile Include="CaseDDLOptions\CaseDDLOptionsService.cs" />
+    <Compile Include="ServiceUnitOfWork.cs" />
+    <Compile Include="Upload\IUploadService.cs" />
+    <Compile Include="Upload\UploadService.cs" />
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
   </ItemGroup>

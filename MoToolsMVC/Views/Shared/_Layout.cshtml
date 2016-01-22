@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/Vendors")
     @Styles.Render("~/CSS/MoTools")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/Helpers")
@@ -92,6 +93,7 @@
                     <td class="default-background" align="left" valign="top">
                         <div class="white-background"></div>
                         <div ID="MasterPanel" class="fullWidth scrollableX scrollableY"  style="min-height: 800px">
+                            @Html.Partial("_Upload")
                             @RenderBody()
                         </div>                       
                     </td>

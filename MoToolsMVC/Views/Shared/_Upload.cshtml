@@ -1,0 +1,172 @@
+﻿<div id="ctl00_Content1_Panel1" class="divBegining" style="background-color:#E5E9EC;border-width:0px;width:98%;">
+    <fieldset style="border-width: 0;">
+        <br>
+        <div id="ctl00_Content1_PanelDatatable" class="divBegining fullWidth whiteBackground">
+
+            <style>
+                .attachments-list-container {
+                    margin: 5px 0px;
+                    padding: 10px;
+                    font-size: 11px;
+                    border: 2px groove threedface;
+                }
+
+                .attachments-list {
+                    border-color: #DDDDDD;
+                    border-width: 1px;
+                    border-style: Solid;
+                    border-collapse: collapse;
+                    padding: 4px;
+                }
+
+                .attachment-type-container {
+                    text-align: left;
+                    padding-left: 20%;
+                }
+
+                .attachment-type {
+                    font-size: 12px;
+                    width: 30%;
+                }
+
+                label[for=attachment-type] {
+                    font-size: 12px;
+                }
+
+                .attachment-file {
+                    width: 355px;
+                }
+            </style>
+
+            <script>
+                $(document).ready(function () {
+                    function UploadManager() {
+                        var _uploadContainer,
+                            _this = this;
+
+                        this.setupPopup = function () {
+                            var combo = $('.attachment-type', _uploadContainer);
+                            if (!$('option', combo).length) {
+                                $.get('/Team/GetUploadAttachmentTypes', {}, function (data) {
+                                    data.forEach(function (option) {
+                                        combo.append($('<option/>', { text: option.Text, value: option.ID }));
+                                    });
+                                    showPopup();
+                                });
+                            } else {
+                                showPopup();
+                            };
+                        };
+
+                        this.saveAttachment = function () {
+                            var formData = new FormData(),
+                                file = $('.attachment-file', _uploadContainer)[0].files[0],
+                                attachment_type = $('.attachment-type', _uploadContainer).val();
+
+                            formData.append('file', file);
+                            var xhr = new XMLHttpRequest();
+                            xhr.open('POST', '/Team/SaveAttachment?type=' + attachment_type, true);
+                            xhr.setRequestHeader('Content-Type', file.type);
+                            xhr.onload = function () {
+                                if (xhr.status === 200) {
+                                    //TODO: File uploaded callback
+                                    alert("Uploaded successfully");
+                                } else {
+                                    //TODO: Upload error callback
+                                    alert("Error uploading");
+                                }
+                            };
+                            xhr.send(formData);
+
+                            closePopup();
+                        };
+
+                        this.showPopup = function () {
+                            $('.upload-popup', _uploadContainer).show();
+                            clearFileInput();
+                        };
+
+                        this.closePopup = function (e) {
+                            e.preventDefault();
+                            $('.upload-popup', _uploadContainer).hide();
+                            clearFileInput();
+                        };
+
+                        this.clearFileInput = function () {
+                            $('.attachment-file', _uploadContainer).wrap('<form>').closest('form').get(0).reset();
+                            $('.attachment-file', _uploadContainer).unwrap();
+                        };
+
+                        return {
+                            init: function (uploadContainer) {
+                                _uploadContainer = uploadContainer;
+                                $('.attachment-popup-open', uploadContainer).click(_this.setupPopup);
+                                //$('.save-attachment', uploadContainer).click(_this.saveAttachment);
+                                $('.close-popup', uploadContainer).click(_this.closePopup);
+                            }
+                        }
+                    };
+
+                    $('.upload-container').each(function (i, uploadContainer) {
+                        UploadManager().init(uploadContainer);
+                    });
+                });
+            </script>
+
+            @* ---------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
+            <div class="upload-container">
+                <div class="blockContainer">
+                    <div class="caseTitleContainer">
+                        <div class="caseTitle"><strong>Arquivos</strong></div>
+                    </div>
+
+                    <div class="labelInputContainer fullWidth">
+                        <button class="attachment-popup-open">Adicionar Arquivo</button>
+
+                        <div class="upload-popup" style="display: none; font-size: 10px;">
+                            <div class="alertify-cover"></div>
+                            <div class="alertify alertify-confirm" style="top: 10%;">
+                                <div class="alertify-dialog">
+                                    @using (Html.BeginForm("SaveAttachment", "Team", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="alertify-inner">
+                                            <p class="alertify-title">Arquivos</p>
+                                            <div class="alertify-message">
+
+                                                <div class="attachment-type-container alertify-message">
+                                                    <label for="attachment-type">Tipo</label>
+                                                    <select class="attachment-type" name="attachment-type"></select>
+                                                </div>
+
+                                                <div class="attachment-file-form">
+                                                    <input type="file" name="file" class="attachment-file" />
+                                                </div>
+
+                                            </div>
+
+                                            <div class="alertify-buttons">
+                                                <input type="submit" value="Cancelar" class="alertify-button alertify-button-cancel close-popup" name="close-popup" title="Cancelar">
+                                                <input type="submit" value="Salvar" class="alertify-button alertify-button-ok save-attachment" name="save-attachment" title="Salvar Anexo">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attachments-list-container">
+                    <span>Arquivos da atividade</span>
+                    <div class="attachments-list">
+                        <div class="emptyDataText">Sem arquivos</div>
+                    </div>
+                </div>
+            </div>
+
+            @* ---------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
+        </div>
+    </fieldset>
+</div>
