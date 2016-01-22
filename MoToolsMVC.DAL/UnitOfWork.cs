@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoToolsMVC.DAL
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private RioJaneiroEntities _dbContext;
         private IMenuRepository _menuRepository;

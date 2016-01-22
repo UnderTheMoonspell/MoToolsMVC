@@ -1,4 +1,4 @@
-﻿using MoToolsMVC.BLL.Menu;
+﻿using MoToolsMVC.BLL;
 using MoToolsMVC.DAL;
 using System;
 using System.Collections.Generic;
@@ -10,22 +10,22 @@ namespace MoToolsMVC.Controllers
 {
     public class UserController : Controller
     {
-        private IUserService _userService;
-        public UserController(IUserService userService)
+        private IServiceUnitOfWork _serviceUnitOfWork;
+        public UserController(IServiceUnitOfWork serviceUnitOfWork)
         {
-            this._userService = userService;
+            this._serviceUnitOfWork = serviceUnitOfWork;
         }
 
         [HttpGet]
         public ActionResult Edit(string username)
         {
-            UsersRCA user = _userService.GetUser(username);
+            UsersRCA user = _serviceUnitOfWork.UserService.GetUser(username);
             return View(user);
         }
 
         protected override void Dispose(bool disposing)
         {
-            _userService.Dispose();
+            _serviceUnitOfWork.Dispose();
             base.Dispose(disposing);
         }
     }

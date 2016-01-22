@@ -50,6 +50,12 @@ namespace MoToolsMVC
                 "~/Content/NewActivities.css",
                 "~/Content/MyBO.css"
             ));
+
+            bundles.Add(new StyleBundle("~/Content/Vendors").Include(
+               "~/Content/vendor/alertify/alertify.core.css",
+               "~/Content/vendor/alertify/alertify.default.css",
+               "~/Content/vendor/jQuery-ui/jquery-ui.css"
+            ));
         }
     }
 }
