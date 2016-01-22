@@ -1,5 +1,9 @@
-﻿<div id="menuTree" class="displayNone" data-src="@Url.Action("Get", "Menu")"></div>
+﻿@model string
 
-@Scripts.Render("~/bundles/menu")
 @Styles.Render("~/CSS/SideMenu")
+<div id="menuTree" class="" data-src="@Url.Action("Get", "Menu")">
+    @Html.Raw(Model)
+</div>
+@Scripts.Render("~/bundles/Menu")
+
 

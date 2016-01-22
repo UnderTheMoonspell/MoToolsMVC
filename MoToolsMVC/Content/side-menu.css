@@ -101,63 +101,53 @@
     }
 
 
-#menuTree {
-    font-size: 14px;
+#menuTree a{
+    font-size: 14px!important;
+    cursor: pointer;
+    text-decoration: none;
 }
-
-    #menuTree .jqtree-title-folder {
-        background-color: #2b3239 !important;
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-
-
-    #menuTree > ul > li > div > a.jqtree_common {
-        background: url("../../img/pointFolder.png") no-repeat center;
-        width: 20px;
-        height: 15px;
-        float: left;
-    }
-
-.bullet-list{
-    min-width: 210px;
-}
-
-.bullet-list a {
-    background: url("../../img/bulletlist.png") no-repeat center;
-    width: 18px;
-    height: 22px;
-    float: left;
-}
-
-.bullet-list span {
-    padding-top: 10px;
-}
-
 
 #menuTree ul {
     list-style: none;
     padding-left: 10px;
 }
 
-
-#menuTree span{
-    cursor: pointer;
-}
-
 #menuTree > ul > li {
     margin-top: 10px;
 }
 
-span[aria-level="1"] {
-    color: #FFF;
+[aria-level="1"]>a {
+    color: #FFF!important;
+
+}
+    [aria-level="1"] > i {
+        background: url("../../img/pointFolder.png") no-repeat center;
+        width: 20px;
+        height: 15px;
+        float: left;
+    }
+
+
+[aria-level="1"], [aria-level="2"], [aria-level="3"], [aria-level="4"] {
+        color:#FFF;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;     
+        min-width: 210px;
+        padding-top: 5px;
 }
 
-span[aria-level="2"], span[aria-level="3"], span[aria-level="4"] {
-    display: inline-block;
-    color: #3bddff;
-padding-top:12px;
+[aria-level="2"]>i, [aria-level="3"]>i,[aria-level="4"]>i {
+    background: url("../../img/bulletlist.png") no-repeat center;
+    background-size:  10px 17px;
+    width: 18px;
+    height: 22px;
+    float: left;
+}
+
+[aria-level="2"]>a, [aria-level="3"]>a,[aria-level="4"]>a{
+    display: block;
+    padding-top: 10px;
+    color: #3bddff!important;
 }

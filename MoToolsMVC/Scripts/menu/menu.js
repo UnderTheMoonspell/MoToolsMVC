@@ -3,57 +3,12 @@
     var MenuController = {
         initialWidth: "243px",
         minimizedWidth: "36px",
-
+        
         init: function () {
-
-            var $menuTree = $("#menuTree");
-
-            $.getJSON(
-                $menuTree.attr('data-src'),
-                function (data) {
-                    $menuTree.tree({
-                        data: data.nodes,
-                        autoOpen: true,
-                        dragAndDrop: false,
-                        onCreateLi: createLiFunction,
-                        closedIcon: ' ',
-                        openedIcon: ' '
-                    });
-
-                    var tree = $menuTree.tree('getTree');
-
-                    tree.iterate(
-                        function (node, level) {
-                            if (node.hasChildren()) {
-                                $menuTree.tree('closeNode', node);
-                                return true;
-                            }                            
-                        }
-                    );
-                    $menuTree.removeClass('displayNone');
-                }
-            );
-
-            $('#menuTree').on('click', 'span', function () {
-                var href = $(this).attr('href');
-                if (href) {
-                    window.location = href;
-                } else {
-                    var nodeId = $(this).attr('node-id');
-                    var node = $('#menuTree').tree('getNodeById', nodeId);
-                    $('#menuTree').tree('toggle', node);
-                }
-            });
-
-            function createLiFunction(node, $li) {
-                var $nodeSpan = $li.find('.jqtree-title');
-                var $nodeDiv = $li.find('.jqtree-element');
-                $nodeSpan.attr('href', node.targetLink).attr('node-id', node.id);
-                if ($nodeSpan.attr('aria-level') != "1") {
-                    $nodeDiv.find('a').remove();
-                    $nodeDiv.addClass('bullet-list').prepend('<a></a>');
-                }
-            }
+            
+            $('[aria-level]>a').on('click', function () {
+                $(this).siblings('ul').children('.group-expand').toggleClass('displayNone');
+            })
 
             $('#IMG_Hamburger_Menu').on('click', function () {
                 MenuController.HamburgerClicked();
@@ -243,6 +198,9 @@
         }
     }
 
-    MenuController.init();
+    $(document).ready(function () {
+        MenuController.init();
+
+    })
 })();
 

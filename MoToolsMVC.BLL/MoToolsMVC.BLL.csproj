@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Menu\IMenuService.cs" />
     <Compile Include="Menu\IMoToolsService.cs" />
+    <Compile Include="Menu\NodeConstrutor.cs" />
     <Compile Include="Menu\MenuNode.cs" />
     <Compile Include="Menu\MenuService.cs" />
     <Compile Include="Menu\MenuTree.cs" />

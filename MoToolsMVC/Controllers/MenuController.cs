@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MoToolsMVC.Helpers;
 
 namespace MoToolsMVC.Controllers
 {
@@ -16,16 +17,17 @@ namespace MoToolsMVC.Controllers
         {
             this._menuservice = menuService;
         }
-        
+
         public ActionResult Get(string username)
         {
-            MenuTree menuTree = Session["MenuTree"] as MenuTree;
+            string menuTree = Helper.Session.GetSession<string>("MenuTree");
             if (menuTree == null)
             {
                 menuTree = _menuservice.GetMenuByUser(username, HttpContext.Request.ApplicationPath.ToString());
                 Session.Add("MenuTree", menuTree);
+                Helper.Session.SetSession("MenuTree", menuTree);
             }
-            return Json(menuTree, JsonRequestBehavior.AllowGet);
+            return PartialView("_Menu", menuTree);
         }
 
         protected override void Dispose(bool disposing)

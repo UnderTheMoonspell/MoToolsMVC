@@ -25,7 +25,10 @@ namespace MoToolsMVC
 
             bundles.Add(new ScriptBundle("~/bundles/Menu").Include(
                     "~/Scripts/menu/menu.js",
-                    "~/Scripts/vendor/tree.jquery.js"));
+                    "~/Scripts/vendor/tree.jquery.js",
+                    "~/Scripts/vendor/jstree.js",
+                    "~/Scripts/vendor/jstree.types.js"
+                    ));
 
             bundles.Add(new ScriptBundle("~/bundles/Main").Include(
                     "~/Scripts/main.js"));
