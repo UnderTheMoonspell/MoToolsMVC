@@ -1,0 +1,152 @@
+﻿@import "global.scss";
+
+#TD_MenuArea {
+    position: relative;
+    background-color: $blue-dark-grey-2;
+
+    #lineGlowDiv {
+        @extend %full-height;
+        background: rgba(59,83,102,1);
+        background: -moz-linear-gradient(left, rgba(59,83,102,1) 0%, rgba(59,221,255,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(59,83,102,1)), color-stop(100%, rgba(59,221,255,1)));
+        background: -webkit-linear-gradient(left, rgba(59,83,102,1) 0%, rgba(59,221,255,1) 100%);
+        background: -o-linear-gradient(left, rgba(59,83,102,1) 0%, rgba(59,221,255,1) 100%);
+        background: -ms-linear-gradient(left, rgba(59,83,102,1) 0%, rgba(59,221,255,1) 100%);
+        background: linear-gradient(to right, rgba(59,83,102,1) 0%, rgba(59,221,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b5366', endColorstr='#3bddff', GradientType=1 );
+        position: absolute;
+        right: 0px;
+        width: 3px;
+    }
+
+    #menu-hamburger {
+        border-width: 0;
+        text-align: right;
+        margin-right: 6px;
+        height: 50px;
+
+        img {
+            border-width: 0;
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+        }
+    }
+
+    #menuLabel {
+        margin-top: 0px;
+        white-space: nowrap;
+        margin-left: 0px;
+        padding-left: 10px;
+        background-color: $blue-dark-grey-1 !important;
+        line-height: 35px;
+
+        &.menu-vertical {
+            display: none;
+        }
+
+        .MenuClass {
+            color: $blue-turquoise;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin: 0 auto;
+            line-height: 35px;
+        }
+    }
+}
+
+.menu-width {
+    width: 243px;
+}
+
+#goToHome {
+    @extend %float-left;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    cursor: pointer;
+
+    * {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 50px;
+    }
+
+    img#homeButton {
+        width: 30px;
+        height: 30px;
+    }
+
+    span {
+        color: $white;
+        font-size: 14px;
+
+        &.menu-vertical {
+            display: none;
+        }
+    }
+
+    &.menu-vertical {
+        @extend %full-width;
+        margin-top: 10px;
+    }
+
+    img.menu-vertical {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#menuTree {
+    font-size: 14px;
+
+    .jqtree-title-folder {
+        background-color: #2b3239 !important;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 10px;
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    & > ul > li {
+        margin-top: 10px;
+
+        & > div > a.jqtree_common {
+            background: url("../../img/pointFolder.png") no-repeat center;
+            width: 20px;
+            height: 15px;
+            float: left;
+        }
+    }
+
+    .bullet-list {
+        min-width: 210px;
+
+        a {
+            background: url("../../img/bulletlist.png") no-repeat center;
+            width: 18px;
+            height: 22px;
+            float: left;
+        }
+    }
+
+    span[aria-level="1"] {
+        color: $white;
+    }
+
+    span[aria-level="2"], span[aria-level="3"], span[aria-level="4"] {
+        color: $blue-turquoise;
+        display: inline-block;
+        padding-top: 12px;
+    }
+}

@@ -1,0 +1,59 @@
+﻿/* display */
+
+%full-width {
+    width: 100%;
+}
+
+%full-height {
+    height: 100%;
+}
+
+%full-width-height {
+    @extend %full-width;
+    @extend %full-height;
+}
+
+%float-left {
+    float: left;
+}
+
+%float-right {
+    float: right;
+}
+
+/* colors */
+
+$black: #000000;
+$white: #FFFFFF;
+
+$green: #02CF0D;
+$yellow: #FFD300;
+$orange: #FF7F02;
+$red: #FF0000;
+
+$blue-dark-grey-1: #3B454F;
+$blue-dark-grey-2: #2B3239;
+$blue-light-grey-1: #E5E9EC;
+$blue-light-grey-2: #EBF0F0;
+
+$blue-dark-1: #2A3A4A;
+$blue-dark-2: #40546C;
+$blue-1: #0000FF;
+$blue-2: #006EAB;
+$blue-3: #27ABD2;
+$blue-turquoise: #3BDDFF;
+
+$grey-black: #111111;
+$grey-dark-1: #333333;
+$grey-dark-2: #444444;
+$grey-dark-3: #555555;
+$grey-1: #6B6B6B;
+$grey-2: #909090;
+$grey-3: #AAAAAA;
+
+$grey-light-1: #BBBBBB;
+$grey-light-2: #CCCCCC;
+$grey-light-3: #E8E8E8;
+$grey-white-1: #EEEEEE;
+$grey-white-2: #F4F4F4;
+$grey-white-3: #FAFAFA;

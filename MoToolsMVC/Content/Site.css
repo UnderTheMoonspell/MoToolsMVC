@@ -1,24 +1,39 @@
-﻿.fullWidth{
-    width: 100%;
-}
+/* display */
+html, body, .body-table, .spinner-loading, #imgLoader, #imgLoader .loader-background, #imgLoader #loader_gif, #imgLoader #loader_txt, #loader, #ctl00_Content1_GV_PlanoFixo input[type='text'],
+#ctl00_Content1_GV_PlanoFixo select, table.lightGreyTable > tbody > tr > td > input,
+table.lightGreyTable > tbody > tr > td > select, .filterContainer, .operations-summary .summary li a {
+  width: 100%; }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0px; 
-  font-family: Trebuchet MS,Verdana,Sans-Serif;
-
-}
-
-.body-table {
-  width: 100%;
+html, body, .body-table, .spinner-loading, #imgLoader, #imgLoader .loader-background, #imgLoader #loader_gif, #imgLoader #loader_txt, #loader, #loader:before {
   height: 100%; }
+
+.leftFloat, .user-popup .greyBackground .bold, .dateFilter, .operations-summary .summary li {
+  float: left; }
+
+.rightFloat, .importButton, div div div img:nth-child(2) {
+  float: right; }
+
+/* colors */
+html, body {
+  padding: 0px;
+  margin: 0px; }
 
 input, select {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+
+/* backgrounds */
+.default-background {
+  background-color: #E5E9EC;
+  width: 99%;
+  border-width: 0; }
+
+.whiteBackground {
+  background-color: #FFFFFF; }
+
+.transparent {
+  background-color: transparent; }
 
 /* layout */
 .inline {
@@ -33,12 +48,6 @@ input, select {
 .nowrap {
   white-space: nowrap; }
 
-.rightFloat {
-  float: right; }
-
-.leftFloat {
-  float: left; }
-
 .valign-middle * {
   margin: auto 0; }
 
@@ -52,30 +61,15 @@ input, select {
 .rightAlign {
   text-align: right; }
 
-/* backgrounds */
-.default-background {
-  background-color: #e5e9ec;
-  /* very ligth grey */
-  width: 99%;
-  border-width: 0; }
-
-.whiteBackground {
-  background-color: white; }
-
-.transparent {
-  background-color: transparent; }
-
 /* colors */
 .editTime_Green {
-  color: #02cf0d;
-  /* green */ }
+  color: #02CF0D; }
 
 .editTime_Yellow {
-  color: #ffd300;
-  /* yellow */ }
+  color: #FFD300; }
 
 .editTime_Red {
-  color: red; }
+  color: #FF0000; }
 
 /* others */
 .checkboxSelectAll {
@@ -94,8 +88,6 @@ input, select {
   text-align: center;
   z-index: 1000;
   overflow: auto;
-  height: 100%;
-  width: 100%;
   background: rgba(0, 0, 0, 0.3); }
 
 .align-vertical-center {
@@ -104,8 +96,6 @@ input, select {
   left: 50%; }
 
 #imgLoader {
-  height: 100%;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -113,47 +103,37 @@ input, select {
   z-index: 1000000000; }
   #imgLoader .loader-background {
     opacity: 0.7;
-    background-color: #444;
-    /* very dark grey */
+    background-color: #444444;
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#444', endColorstr='#444');
     position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0px;
     left: 0px; }
   #imgLoader #loader_gif {
-    height: 100%;
     top: 0px;
     left: 0px;
-    width: 100%;
     position: fixed;
     z-index: 1000000001;
     background: url("../../img/loading.gif") no-repeat scroll center center transparent; }
   #imgLoader #loader_txt {
-    height: 100%;
     top: 50%;
     left: 0px;
-    width: 100%;
     position: fixed;
     z-index: 1000000002;
     text-align: center;
     text-transform: uppercase;
     font-size: 22px;
     line-height: 12px;
-    color: white; }
+    color: #FFFFFF; }
 
 #loader {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
   z-index: 10000; }
   #loader:before {
     content: '';
-    height: 100%;
     display: inline-block;
     vertical-align: middle;
     margin-left: -0.25em; }
@@ -171,7 +151,7 @@ input, select {
   right: 80px;
   top: 50px;
   min-width: 180px;
-  background-color: white;
+  background-color: #FFFFFF;
   padding: 0px;
   list-style-type: none;
   border: 1px lightgrey solid;
@@ -186,16 +166,13 @@ input, select {
     padding-left: 10px; }
   .user-popup .greyBackground {
     background-color: #EBF0F0;
-    /* very light grey */
     padding: 5px 0px; }
     .user-popup .greyBackground .bold {
       font-family: 'Segoe UI Semibold';
-      float: left;
       margin-right: 5px; }
   .user-popup .config span {
     font-family: 'Segoe UI Semilight';
     color: #BBBBBB;
-    /* grey */
     font-size: 10px;
     margin: 10px 0px; }
   .user-popup .links {
@@ -239,10 +216,6 @@ input, select {
   font-size: 11px !important; }
 
 /* Cases\Individuais\View.aspx */
-#ctl00_Content1_GV_PlanoFixo input[type='text'],
-#ctl00_Content1_GV_PlanoFixo select {
-  width: 100%; }
-
 /* CommunicationError.html */
 /* UC_OperationalDashboadChart.js */
 .tabs-area {
@@ -272,10 +245,9 @@ input, select {
   padding: 0px 20px;
   margin: 0px;
   font-size: 16px;
-  color: #006eab;
-  /* dark blue */
+  color: #006EAB;
   font-weight: bold;
-  background-color: white;
+  background-color: #FFFFFF;
   cursor: pointer; }
 
 .sel .cellLeftTab {
@@ -295,8 +267,7 @@ input, select {
 
 /* UC_DualOption.ascx */
 .allowDisabled[disabled] {
-  background-color: #EFEFEF;
-  /* light grey */ }
+  background-color: #EEEEEE; }
 
 .LightGray_Border {
   border: 1px solid lightgray; }
@@ -307,8 +278,7 @@ input, select {
 
 /* Jquery PlaceHolder */
 .placeholder {
-  color: #aaa;
-  /* grey */ }
+  color: #AAAAAA; }
 
 /* OI_Gestor_Edit.aspx */
 .SmallTableHeader tr th {
@@ -337,10 +307,6 @@ table.lightGreyTable > thead > tr > th {
 table.lightGreyTable > tbody > tr > td {
   padding: 2px; }
 
-table.lightGreyTable > tbody > tr > td > input,
-table.lightGreyTable > tbody > tr > td > select {
-  width: 100%; }
-
 table.lightGreyTable > tbody > tr {
   border-bottom: 1px solid #111111; }
 
@@ -358,17 +324,14 @@ table.lightGreyTable > tbody > tr > td:first-child {
 /* UC_ImportFiles.ascx */
 .dateFilter {
   width: 48%;
-  float: left;
   padding-left: 1%; }
 
 .importButton {
   width: 48%;
-  float: right;
   text-align: right;
   padding-right: 1%; }
 
 .filterContainer {
-  width: 100%;
   overflow: hidden;
   margin-top: 20px; }
 
@@ -405,7 +368,7 @@ table.lightGreyTable > tbody > tr > td:first-child {
 /* UC_OperationsSummary.ascx */
 .operations-summary {
   color: #333333;
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 16px;
@@ -420,24 +383,19 @@ table.lightGreyTable > tbody > tr > td:first-child {
   line-height: 24px; }
 
 .operations-summary .summary {
-  background: #fafafa;
-  /* very ligth grey */
+  background: #FAFAFA;
   list-style: none;
   padding: 0px; }
 
 .operations-summary .summary li {
-  float: left;
   width: 180px;
   line-height: 16px; }
 
 .operations-summary .summary li a {
-  background: #f4f4f4;
-  /* very ligth grey */
-  border: 1px solid #e8e8e8;
-  /* light grey */
+  background: #F4F4F4;
+  border: 1px solid #E8E8E8;
   display: inline-block;
-  padding: 10px 0px 5px 0px;
-  width: 100%; }
+  padding: 10px 0px 5px 0px; }
 
 .operations-summary .summary .summary-title {
   height: 16px;
@@ -452,7 +410,6 @@ table.lightGreyTable > tbody > tr > td:first-child {
 
 /*  */
 div div div img:nth-child(2) {
-  float: right;
   margin-top: 0; }
 
 /*  */
@@ -466,7 +423,7 @@ div div div img:nth-child(2) {
   border: 1px solid red !important; }
 
 .TextColorError {
-  color: red; }
+  color: #FF0000; }
 
 /*  */
 #Btn_Search {

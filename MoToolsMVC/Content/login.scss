@@ -1,0 +1,194 @@
+﻿@import "global.scss";
+
+body, html {
+    @extend %full-width-height;
+    font-weight: normal;
+}
+
+body {
+    overflow: hidden;
+}
+
+form {
+    @extend %full-width-height;
+    top: 25%;
+    position: absolute;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+i {
+    display: block;
+}
+
+input[type=checkbox] {
+    margin: 9px 5px 0px 0px;
+}
+
+label, input[type=checkbox] {
+    @extend %float-left;
+    cursor: pointer;
+}
+
+label {
+    font-size: 13px;
+    padding: 0px;
+    font-family: "Segoe UI" !important;
+}
+
+.displayNone {
+    display: none;
+}
+
+.top-bar {
+    @extend %full-width;
+    height: 60px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.login-container {
+    width: 50%;
+    display: table-cell;
+    text-align: left;
+    font-family: "Segoe UI";
+    vertical-align: middle;
+
+    & .title {
+        @extend %full-width;
+        height: 36px;
+        line-height: 36px;
+        display: block;
+        text-transform: lowercase;
+        color: $black;
+        font-size: 28px;
+    }
+
+    & .box {
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        margin: 4px 0px;
+    }
+
+    & input[type=text], & input[type=password] {
+        width: 99.6%;
+        height: 24px;
+        line-height: 24px;
+        margin: 2px 0px 0px 0px;
+        border: 1px solid #cccccc; /* grey */
+        font-family: "Segoe UI";
+    }
+
+    & input[type=submit] {
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 20px;
+        border: 0px;
+        font-family: "Segoe UI" !important;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
+.black input[type=submit] {
+    background-color: $black;
+}
+
+.blue input[type=submit] {
+    background-color: $blue-1;
+}
+
+.red input[type=submit] {
+    background-color: $red;
+}
+
+.black, .blue, .red {
+    input[type=submit] {
+        color: $white;
+    }
+}
+
+.logotipo {
+    width: 50%;
+    padding-right: 10px;
+    margin-top: 50px;
+    display: table-cell;
+    background: transparent url(logo_printer.png) no-repeat center center;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.errorRow {
+    @extend %full-width;
+    height: 10px;
+    margin-top: 20px;
+    display: block;
+    font-size: 15px;
+    color: $red;
+    text-align: center;
+}
+
+#captchaContainer {
+    width: 200px;
+    height: auto;
+
+    p {
+        @extend %float-left;
+    }
+}
+
+.LBD_CaptchaDiv {
+    @extend %float-left;
+    margin-top: 5px;
+}
+
+#botCaptcha_CaptchaCode {
+    margin-top: 10px;
+}
+
+.LBD_SoundIcon {
+    display: none !important;
+}
+
+.mainContainer {
+    @extend %full-width;
+    margin-top: 10px;
+    display: table;
+
+    & > div {
+        display: table-row;
+    }
+}
+
+.submitRow {
+    @extend %full-width;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    input {
+        border: 0px;
+        line-height: 30px;
+        padding: 0px 20px;
+        font-family: "Segoe UI" !important;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: $black;
+        color: $white;
+    }
+}
+
+.cssTable {
+    @extend %full-width;
+    display: table;
+}
+
+.row {
+    @extend %full-width;
+    display: table-row;
+}
