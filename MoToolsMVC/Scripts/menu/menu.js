@@ -7,7 +7,9 @@
         init: function () {
             
             $('[aria-level]>a').on('click', function () {
-                $(this).siblings('ul').children('.group-expand').toggleClass('displayNone');
+                $(this).siblings('ul').children('.group-expand').slideToggle('fast', function(){
+                    $(this).toggleClass('group-hide');
+                })
             })
 
             $('#IMG_Hamburger_Menu').on('click', function () {
