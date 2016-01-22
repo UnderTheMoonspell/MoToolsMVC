@@ -20,7 +20,6 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClearScript">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.2.4\lib\net40\ClearScript.dll</HintPath>
+    </Reference>
     <Reference Include="JavaScriptEngineSwitcher.Core">
       <HintPath>..\packages\JavaScriptEngineSwitcher.Core.1.2.4\lib\net40\JavaScriptEngineSwitcher.Core.dll</HintPath>
     </Reference>
@@ -95,6 +97,15 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Core">
+      <HintPath>..\packages\React.Core.2.1.2\lib\net40\React.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web">
+      <HintPath>..\packages\React.Web.2.1.2\lib\net40\React.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4">
+      <HintPath>..\packages\React.Web.Mvc4.2.1.2\lib\net40\React.Web.Mvc4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -157,6 +168,9 @@
     <Reference Include="Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
       <HintPath>..\packages\Validation.2.0.0.12319\lib\portable-windows8+net40+sl5+windowsphone8\Validation.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="VroomJs">
+      <HintPath>..\packages\React.Core.2.1.2\lib\net40\VroomJs.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
@@ -234,6 +248,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -242,15 +257,19 @@
     <Compile Include="Unity\UnityConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\buttons.css">
-      <DependentUpon>buttons.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\global.css">
-      <DependentUpon>global.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\login.css">
-      <DependentUpon>login.scss</DependentUpon>
-    </Content>
+    <None Include="ClearScript.V8\ClearScriptV8-32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\ClearScriptV8-64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\v8-ia32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClearScript.V8\v8-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Content\buttons.css" />
     <Content Include="Content\MyBO.css" />
     <Content Include="Content\side-menu.css">
       <DependentUpon>side-menu.scss</DependentUpon>
@@ -415,19 +434,14 @@
     <Content Include="Content\CloserMultiSelector.css" />
     <Content Include="Content\FormSeparators.css" />
     <Content Include="Scripts\helpers\helpers.js" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\loginV2.css" />
     <Content Include="Scripts\main.js" />
     <Content Include="Content\NewActivities.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\menu\menu.js" />
-    <Content Include="Content\buttons.scss" />
-    <Content Include="Content\global.scss" />
-    <Content Include="Content\login.scss" />
-    <Content Include="Content\side-menu.scss" />
-    <Content Include="Content\site.scss" />
-    <Content Include="Content\top-bar.scss" />
-    <Content Include="Content\top-menu.scss" />
     <None Include="Scripts\vendor\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
@@ -439,7 +453,6 @@
     <Content Include="Scripts\vendor\modernizr-2.6.2.js" />
     <Content Include="Scripts\vendor\respond.js" />
     <Content Include="Scripts\vendor\respond.min.js" />
-    <Content Include="Scripts\vendor\tree.jquery.js" />
     <Content Include="Scripts\vendor\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -482,7 +495,6 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\View.cshtml" />
-    <Content Include="Views\Shared\_Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

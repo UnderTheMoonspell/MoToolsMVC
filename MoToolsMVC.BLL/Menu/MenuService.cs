@@ -14,48 +14,62 @@ namespace MoToolsMVC.BLL.Menu
 
         public MenuService(IUnitOfWork unitOfWork)
         {
-            this._unitOfWork = unitOfWork;           
+            this._unitOfWork = unitOfWork;
         }
 
-        public MenuTree GetMenuByUser(string username, string rootUrl)
+        public string GetMenuByUser(string username, string rootUrl)
         {
             //SO PARA TESTE
             this._rootUrl = rootUrl;
             username = "boanateladmin";
-            MenuTree menuTree = new MenuTree();
-            MenuNode newMenuNode = new MenuNode();
-
+            //
             List<Get_Menu_MVC_Result> menuObj = _unitOfWork.MenuRepository.GetMenuByUser(username);
             List<int> teamIDs = menuObj.Select(l => l.BDTEamID).Distinct().OrderBy(l => l.Value).Select(l => l.Value).ToList();
-
-            foreach(int teamId in teamIDs)
+            StringBuilder finalHtml = new StringBuilder("<ul class=\"master-node\">");
+            foreach (int teamId in teamIDs)
             {
-                BuildMenu(menuTree, menuObj, null, newMenuNode, teamId);
+                finalHtml.Append(BuildMenu(menuObj, null, teamId));
             }
-            return menuTree;
+            finalHtml.Append("</ul>");
+            return finalHtml.ToString();
         }
 
-        private void BuildMenu(MenuTree menuTree, List<Get_Menu_MVC_Result> menuList, int? parentId, MenuNode inProgressNode, int BDTeamId)
+
+        private string BuildMenu(List<Get_Menu_MVC_Result> menuList, int? parentId, int BDTeamId)
         {
-
             List<Get_Menu_MVC_Result> filteredMenu = menuList.FindAll(x => x.ParentID == parentId && x.BDTEamID == BDTeamId);
-
-            //string prevBdTeamId, bdTeamId, menuID, newParentId, label, targetLink, newId;
-
+            StringBuilder levelHtml = new StringBuilder();
             foreach (Get_Menu_MVC_Result menu in filteredMenu)
             {
-                string menuUrl = menu.URL != null ? menu.URL.Replace("~/",this._rootUrl) : null;
-                MenuNode node = new MenuNode((menu.ID + "-" + menu.BDTEamID).ToString(), menu.Name, menuUrl);
-
-                if (menu.ParentID == null && (menu.ID == 0 || menu.BDTEamID == 0))
+                Node node = CreateNode(menu);
+                levelHtml.Append(node.ReturnNodeHTML);                   
+                if(!node.IsLastChildNode) 
                 {
-                    menuTree.nodes.Add(node);
+                    levelHtml.Append(BuildMenu(menuList, menu.ID, menu.BDTEamID.Value));
+                    levelHtml.Append(node.CloseNodeHtml);
+                }
+            }
+            return levelHtml.ToString();
+        }
+
+        private Node CreateNode(Get_Menu_MVC_Result menu)
+        {
+            string menuUrl = menu.URL != null && menu.URL != "" ? menu.URL.Replace("~/", _rootUrl) : null;
+
+            if (menu.ParentID == null && (menu.ID == 0 || menu.BDTEamID == 0))
+            {
+                return new TeamNode(menu.Name, menuUrl);
+            }
+            else
+            {
+                if (menuUrl == null)
+                {
+                    return new ParentNode(menu.Name, menuUrl);
                 }
                 else
                 {
-                    inProgressNode.children.Add(node);
+                    return new ChildNode(menu.Name, menuUrl);
                 }
-                BuildMenu(menuTree, menuList, menu.ID, node, menu.BDTEamID.Value);
             }
         }
 
@@ -74,6 +88,6 @@ namespace MoToolsMVC.BLL.Menu
                     _unitOfWork.Dispose();
                 }
             }
-        }  
+        }
     }
 }

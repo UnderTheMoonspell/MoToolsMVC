@@ -86,9 +86,8 @@
                             <span class="MenuClass">Menu</span>
                         </div>
                         <div id="menuInitialContent" class="menu-width" style="width: 243px; display: block;">
-                            @Html.Partial("_Menu")
+                            @{Html.RenderAction("Get", "Menu");}
                         </div>
-
                     </td>
                     <td class="default-background" align="left" valign="top">
                         <div class="white-background"></div>
