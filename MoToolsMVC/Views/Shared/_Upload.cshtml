@@ -1,4 +1,8 @@
-﻿<div id="ctl00_Content1_Panel1" class="divBegining" style="background-color:#E5E9EC;border-width:0px;width:98%;">
+﻿@model MoToolsMVC.ViewModel.UploadModel
+
+@* ---------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
+<div id="ctl00_Content1_Panel1" class="divBegining" style="background-color:#E5E9EC;border-width:0px;width:98%;">
     <fieldset style="border-width: 0;">
         <br>
         <div id="ctl00_Content1_PanelDatatable" class="divBegining fullWidth whiteBackground">
@@ -122,7 +126,7 @@
                     </div>
 
                     <div class="labelInputContainer fullWidth">
-                        <button class="attachment-popup-open">Adicionar Arquivo</button>
+                        <button class="attachment-popup-open">@Html.Raw(Model.UploadButtonName)</button>
 
                         <div class="upload-popup" style="display: none; font-size: 10px;">
                             <div class="alertify-cover"></div>
@@ -136,7 +140,7 @@
 
                                                 <div class="attachment-type-container alertify-message">
                                                     <label for="attachment-type">Tipo</label>
-                                                    <select class="attachment-type" name="attachment-type"></select>
+                                                    @Html.DropDownListFor(m => m.AttachmentTypes.SelectedOption, Model.AttachmentTypes.Options, new { @class = "attachment-type", @name = "attachment-type" })
                                                 </div>
 
                                                 <div class="attachment-file-form">
