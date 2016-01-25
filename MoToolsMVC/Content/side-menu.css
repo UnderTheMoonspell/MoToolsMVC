@@ -1,59 +1,97 @@
-/*CUSTOM JQTREE*/
+.menu-area{
+    width: 243px;
+}
+
+.menu-area.menu-vertical{
+    width: 32px;
+    vertical-align: top;
+}
+
+
+.menu-vertical #goToHome img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-vertical #goToHome{
+    width: 100%!important;
+    margin-top: 10px!important;
+}
+
+.menu-vertical #goToHome span{
+    display: none!important;
+}
+
+.menu-vertical #goToHome span{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-vertical #menuLabel{
+    display: none!important;
+}
+
+#menuInitialContent.menu-vertical{
+    display:none!important;
+}
+
+#menuInitialContent{
+    display: block; 
+}
+
 #TD_MenuArea {
-  position: relative;
+    position: relative;
     background-color: #2b3239;
     /* dark grey blue */
 }
 
-  #TD_MenuArea #lineGlowDiv {
-    background: #3b5366;
-    background: -moz-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, #3b5366), color-stop(100%, #3bddff));
-    background: -webkit-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-    background: -o-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-    background: -ms-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-    background: linear-gradient(to right, #3b5366 0%, #3bddff 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b5366', endColorstr='#3bddff', GradientType=1 );
+    #TD_MenuArea #lineGlowDiv {
+        background: #3b5366;
+        background: -moz-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, #3b5366), color-stop(100%, #3bddff));
+        background: -webkit-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+        background: -o-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+        background: -ms-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+        background: linear-gradient(to right, #3b5366 0%, #3bddff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b5366', endColorstr='#3bddff', GradientType=1 );
         height: 100%;
-    position: absolute;
-    right: 0px;
+        position: absolute;
+        right: 0px;
         width: 3px;
     }
 
-  #TD_MenuArea #menu-hamburger {
-    border-width: 0;
-    text-align: right;
-    margin-right: 6px;
+    #TD_MenuArea #menu-hamburger {
+        border-width: 0;
+        text-align: right;
+        margin-right: 6px;
         height: 50px;
     }
 
-    #TD_MenuArea #menu-hamburger img {
-      border-width: 0;
-      cursor: pointer;
-      height: 50px;
-            width: 50px;
-        }
-
-  #TD_MenuArea #menuLabel {
-    margin-top: 0px;
-    white-space: nowrap;
-    margin-left: 0px;
-    padding-left: 10px;
-    background-color: #3B454F !important;
+    #TD_MenuArea #menuLabel {
+        margin-top: 0px;
+        white-space: nowrap;
+        margin-left: 0px;
+        padding-left: 10px;
+        background-color: #3B454F !important;
         /* dark grey blue */
         line-height: 35px;
     }
 
-    #TD_MenuArea #menuLabel.menu-vertical {
-            display: none;
+        #IMG_Hamburger_Menu {
+		    border-width: 0;
+		    cursor: pointer;
+		    height: 50px;
+		    width: 50px;
         }
 
-    #TD_MenuArea #menuLabel .MenuClass {
+        #TD_MenuArea #menuLabel .MenuClass {
             color: #3ADDFE;
             /* light blue - turquoise */
-      font-size: 16px;
-      text-transform: uppercase;
-      margin: 0 auto;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin: 0 auto;
             line-height: 35px;
         }
 
@@ -63,42 +101,28 @@
 
 #goToHome {
     float: left;
-  display: inline-block;
-  vertical-align: middle;
-  white-space: normal;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
     cursor: pointer;
 }
 
-    #goToHome img#homeButton {
-        width: 30px;
-        height: 30px;
-    }
-
-  #goToHome * {
-    display: inline-block;
-    vertical-align: middle;
+    #goToHome * {
+        display: inline-block;
+        vertical-align: middle;
         line-height: 50px;
     }
 
-    #goToHome.menu-vertical {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-  #goToHome span {
+    #goToHome span {
         color: white;
         font-size: 14px;
     }
 
-    #goToHome span.menu-vertical {
-            display: none;
-        }
+#homeButton {
+    width: 30px;
+    height: 30px;
+}
 
-  #goToHome img.menu-vertical {
-    display: block;
-    margin-left: auto;
-        margin-right: auto;
-    }
 
 
 #menuTree a{
@@ -107,36 +131,28 @@
     text-decoration: none;
 }
 
-#menuTree {
-  font-size: 14px; }
-  #menuTree .jqtree-title-folder {
-    background-color: #2B3239 !important;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  #menuTree ul {
+#menuTree ul {
     list-style: none;
     padding-left: 10px;
 }
 
-  #menuTree > ul > li {
+#menuTree > ul > li {
     margin-top: 10px;
 }
 
-[aria-level="1"]>a {
+.team-node>a {
     color: #FFF!important;
 
 }
-    [aria-level="1"] > i {
-      background: url("../../img/pointFolder.png") no-repeat center;
-      width: 20px;
-      height: 15px;
+    .team-node > i {
+        background: url("../../img/pointFolder.png") no-repeat center;
+        width: 20px;
+        height: 15px;
         float: left;
     }
 
 
-[aria-level="1"], [aria-level="2"], [aria-level="3"], [aria-level="4"] {
+.team-node, .parent-node, .child-node {
         color:#FFF;
         display: block;
         overflow: hidden;
@@ -146,15 +162,15 @@
         padding-top: 5px;
 }
 
-[aria-level="2"]>i, [aria-level="3"]>i,[aria-level="4"]>i {
-      background: url("../../img/bulletlist.png") no-repeat center;
+.parent-node>i, .child-node>i {
+    background: url("../../img/bulletlist.png") no-repeat center;
     background-size:  10px 17px;
-      width: 18px;
-      height: 22px;
+    width: 18px;
+    height: 22px;
     float: left;
 }
 
-[aria-level="2"]>a, [aria-level="3"]>a,[aria-level="4"]>a{
+.parent-node>a, .child-node>a{
     display: block;
     padding-top: 10px;
     color: #3bddff!important;

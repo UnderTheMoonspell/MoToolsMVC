@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MoToolsMVC.Helpers;
+using MoToolsMVC.Session;
+using MoToolsMVC.ViewModel;
 
 namespace MoToolsMVC.Controllers
 {
@@ -18,16 +20,27 @@ namespace MoToolsMVC.Controllers
             this._serviceUnitOfWork = serviceUnitOfWork;
         }
 
+        [HttpGet]
         public ActionResult Get(string username)
         {
-            string menuTree = Helper.Session.GetSession<string>("MenuTree");
+            string menuTree = Helper.Session.GetSession<string>(SessionNames.MenuTree);
+            bool? isMenuOpen = Helper.Session.GetSession<bool?>(SessionNames.isMenuOpen);
+            MenuViewModel menuVM = new MenuViewModel(menuTree, isMenuOpen);
             if (menuTree == null)
             {
                 menuTree = _serviceUnitOfWork.MenuService.GetMenuByUser(username, HttpContext.Request.ApplicationPath.ToString());
-                Session.Add("MenuTree", menuTree);
-                Helper.Session.SetSession("MenuTree", menuTree);
+                Helper.Session.SetSession(SessionNames.MenuTree, menuTree);                
+                menuVM.MenuTree = menuTree;
+                menuVM.isMenuOpen = isMenuOpen == true ? isMenuOpen : false;
             }
-            return PartialView("_Menu", menuTree);
+            return PartialView("_Menu", menuVM);
+        }
+
+        [HttpPost]
+        public void SetMenuCookie(bool isMenuOpen)
+        {
+            //bool isMenuCollapsed = Helper.Session.GetSession<bool>(SessionNames.IsMenuCollapsed);
+            Helper.Session.SetSession(SessionNames.isMenuOpen, isMenuOpen);
         }
 
         protected override void Dispose(bool disposing)

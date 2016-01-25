@@ -3,10 +3,11 @@
     var MenuController = {
         initialWidth: "243px",
         minimizedWidth: "36px",
-        
+        menuControllerUrl: $('#IMG_Hamburger_Menu').attr('data-src'),
+
         init: function () {
             
-            $('[aria-level]>a').on('click', function () {
+            $('.group-expand>a').on('click', function () {
                 $(this).siblings('ul').children('.group-expand').slideToggle('fast', function(){
                     $(this).toggleClass('group-hide');
                 })
@@ -16,14 +17,13 @@
                 MenuController.HamburgerClicked();
             });
 
-            $('#TD_MenuArea').hide();
+            //Esta parte é para corrigir um problema que havia quando o Menu começa colapsado. Podia ser feito no razor tambem
             if (MenuController.IsMenuOpen()) {
-                MenuController.openMenu();
+                $("#menuInitialContent , #TD_MenuArea").css('width', MenuController.initialWidth);
             }
             else {
-                MenuController.closeMenu();
+                $("#menuInitialContent , #TD_MenuArea").css('width', MenuController.minimizedWidth);
             }
-            $('#TD_MenuArea').show();
         },
 
         SearchClicked: function () {
@@ -66,7 +66,7 @@
         },
 
         IsMenuOpen: function () {
-            var isOpen = readCookie('isMenuOpen');
+            var isOpen = getSessionStorageItem('isMenuOpen');
             if (!isOpen || isOpen == 'true') {
                 return true
             }
@@ -74,15 +74,17 @@
         },
 
         SetVerticalMenu: function () {
-            $('#goToHome').children().andSelf().addClass('menu-vertical');
-            $('.container-Menu-Label').addClass('menu-vertical');
-            $('#lineGlowDiv').addClass('menu-vertical');
+            $('#TD_MenuArea').addClass('menu-vertical');
+            //$('#goToHome').children().andSelf().addClass('menu-vertical');
+            //$('#menuLabel').addClass('menu-vertical');
+            //$('#lineGlowDiv').addClass('menu-vertical');
         },
 
         SetHorizontalMenu: function () {
-            $('#goToHome').children().andSelf().removeClass('menu-vertical');
-            $('.container-Menu-Label').removeClass('menu-vertical');
-            $('#lineGlowDiv').removeClass('menu-vertical');
+            $('#TD_MenuArea').removeClass('menu-vertical');
+            //$('#goToHome').children().andSelf().removeClass('menu-vertical');
+            //$('#menuLabel').removeClass('menu-vertical');
+            //$('#lineGlowDiv').removeClass('menu-vertical');
         },
 
         HamburgerClicked: function (callback) {
@@ -96,35 +98,35 @@
             }
         },
 
-        SwapElements: function (callback) {
-            var changeIconsTimer = 250;
+        //SwapElements: function (callback) {
+        //    var changeIconsTimer = 250;
 
-            if ($('#IMG_Hamburger_Menu').length && $('#IMG_Search_Menu').length) {  // it exists
+        //    if ($('#IMG_Hamburger_Menu').length && $('#IMG_Search_Menu').length) {  // it exists
 
-                $("#IMG_Hamburger_Menu").swap({
-                    target: "IMG_Search_Menu", // Mandatory. The ID of the element we want to swap with  
-                    opacity: "0.5", // Optional. If set will give the swapping elements a translucent effect while in motion  
-                    speed: changeIconsTimer, // Optional. The time taken in milliseconds for the animation to occur  
-                    callback: function () { // Optional. Callback function once the swap is complete
-                        callback && callback();
-                    }
-                });
-            }
-        },
+        //        $("#IMG_Hamburger_Menu").swap({
+        //            target: "IMG_Search_Menu", // Mandatory. The ID of the element we want to swap with  
+        //            opacity: "0.5", // Optional. If set will give the swapping elements a translucent effect while in motion  
+        //            speed: changeIconsTimer, // Optional. The time taken in milliseconds for the animation to occur  
+        //            callback: function () { // Optional. Callback function once the swap is complete
+        //                callback && callback();
+        //            }
+        //        });
+        //    }
+        //},
 
-        CallWSMenuCollapsed: function (isCollapsed, url) {
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: "{'isCollapsed':'" + isCollapsed + "'}",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                }
-            });
-        },
+        //CallWSMenuCollapsed: function (isCollapsed, url) {
+        //    $.ajax({
+        //        type: "POST",
+        //        url: url,
+        //        data: "{'isCollapsed':'" + isCollapsed + "'}",
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (msg) {
+        //        },
+        //        error: function (xhr, ajaxOptions, thrownError) {
+        //        }
+        //    });
+        //},
 
         MinHeight100Percent: function () {
             var tr = $("#tablePageLayout > tbody > tr:nth-child(2)").height();
@@ -155,32 +157,48 @@
         },
 
         setMenuStatusCookie: function (state) {
-            eraseCookie('isMenuOpen');
-            createCookie('isMenuOpen', state, 1);
+            var data = { isMenuOpen: state }
+            ajaxCall(MenuController.menuControllerUrl, 'POST', data);
+            setSessionStorageItem('isMenuOpen', state);
         },
 
         closeMenu: function (callback) {
-            $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
+            //$("#TD_MenuArea").animate({
+            //    width: MenuController.minimizedWidth
+            //}, 500, function completed() {
+
+
+            $("#menuInitialContent , #TD_MenuArea").animate({
                 width: MenuController.minimizedWidth
             }, 500, function completed() {
-                $("#menuInitialContent").hide();
+                $("#menuInitialContent").addClass('displayNone');
+                callback && callback();
+                MenuController.AfterMenuClickedEvents();
+            
+                //$("#menuInitialContent").hide();
                 callback && callback();
                 MenuController.AfterMenuClickedEvents();
 
                 MenuController.SetVerticalMenu();
 
-                MenuController.SwapElements(function () {
-                    $("#IMG_Search_Menu").removeAttr("style");
-                    $("#IMG_Hamburger_Menu").removeAttr("style");
-                    $("#IMG_Search_Menu").before($("#IMG_Hamburger_Menu"));
-                });
-            });
+                //MenuController.SwapElements(function () {
+                //    $("#IMG_Search_Menu").removeAttr("style");
+                //    $("#IMG_Hamburger_Menu").removeAttr("style");
+                //    $("#IMG_Search_Menu").before($("#IMG_Hamburger_Menu"));
+                //});
+            //});
 
-            MenuController.setMenuStatusCookie(false);
+                MenuController.setMenuStatusCookie(false);
+            });
         },
 
         openMenu: function (callback) {
-            $("#menuInitialContent").show();
+
+            //$("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
+            //    width: MenuController.initialWidth
+            //}, 750, function completed() {
+
+            $("#menuInitialContent").removeClass('displayNone');
             MenuController.SetHorizontalMenu();
             $("#menuInitialContent , #T_ctl00UltraWebTreeMain , #TD_MenuArea").animate({
                 width: MenuController.initialWidth
@@ -188,15 +206,16 @@
                 callback && callback();
                 MenuController.AfterMenuClickedEvents();
 
-                MenuController.SwapElements(function () {
-                    $("#IMG_Search_Menu").removeAttr("style");
-                    $("#IMG_Hamburger_Menu").removeAttr("style");
-                    $("#IMG_Hamburger_Menu").before($("#IMG_Search_Menu"));
-                });
+                //MenuController.SwapElements(function () {
+                //    $("#IMG_Search_Menu").removeAttr("style");
+                //    $("#IMG_Hamburger_Menu").removeAttr("style");
+                //    $("#IMG_Hamburger_Menu").before($("#IMG_Search_Menu"));
+                //});
+                //});
+                MenuController.setMenuStatusCookie(true);
             });
-            MenuController.setMenuStatusCookie(true);
             //MenuController.CallWSMenuCollapsed(false, url);
-            $("#HF_MenuIsCollapsed").val(false);
+            //$("#HF_MenuIsCollapsed").val(false);
         }
     }
 

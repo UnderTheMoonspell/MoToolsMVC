@@ -16,7 +16,13 @@ namespace MoToolsMVC.Helpers
 
             public static T GetSession<T>(string key)
             {
-                return (T)HttpContext.Current.Session[key];
+                var sessionObject = HttpContext.Current.Session[key];
+                if (sessionObject != null)
+                {
+                    return (T)sessionObject;
+                }
+                return default(T);
+
             }
 
             public static void SetSession(string key, object value)
