@@ -239,20 +239,7 @@
     <Compile Include="Unity\UnityConfig.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\buttons.css" />
     <Content Include="Content\MyBO.css" />
-    <Content Include="Content\side-menu.css">
-      <DependentUpon>side-menu.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\site.css">
-      <DependentUpon>site.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\top-bar.css">
-      <DependentUpon>top-bar.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\top-menu.css">
-      <DependentUpon>top-menu.scss</DependentUpon>
-    </Content>
     <Content Include="Content\vendor\alertify\alertify.bootstrap.css" />
     <Content Include="Content\vendor\alertify\alertify.core.css" />
     <Content Include="Content\vendor\alertify\alertify.default.css" />
@@ -404,11 +391,9 @@
     <Content Include="Content\CloserMultiSelector.css" />
     <Content Include="Content\FormSeparators.css" />
     <Content Include="Scripts\helpers\helpers.js" />
-    <Content Include="Content\login.css" />
     <Content Include="Content\loginV2.css" />
     <Content Include="Scripts\main.js" />
     <Content Include="Content\NewActivities.css" />
-    <Content Include="Content\site.css" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\menu\menu.js" />
