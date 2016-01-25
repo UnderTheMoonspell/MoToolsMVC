@@ -1,183 +1,114 @@
-.menu-area{
-    width: 243px;
-}
+/* display */
+#goToHome.menu-vertical {
+  width: 100%; }
 
-.menu-area.menu-vertical{
-    width: 32px;
-    vertical-align: top;
-}
-
-
-.menu-vertical #goToHome img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.menu-vertical #goToHome{
-    width: 100%!important;
-    margin-top: 10px!important;
-}
-
-.menu-vertical #goToHome span{
-    display: none!important;
-}
-
-.menu-vertical #goToHome span{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.menu-vertical #menuLabel{
-    display: none!important;
-}
-
-#menuInitialContent.menu-vertical{
-    display:none!important;
-}
-
-#menuInitialContent{
-    display: block; 
-}
-
-#TD_MenuArea {
-    position: relative;
-    background-color: #2b3239;
-    /* dark grey blue */
-}
-
-    #TD_MenuArea #lineGlowDiv {
-        background: #3b5366;
-        background: -moz-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-        background: -webkit-gradient(left top, right top, color-stop(0%, #3b5366), color-stop(100%, #3bddff));
-        background: -webkit-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-        background: -o-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-        background: -ms-linear-gradient(left, #3b5366 0%, #3bddff 100%);
-        background: linear-gradient(to right, #3b5366 0%, #3bddff 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b5366', endColorstr='#3bddff', GradientType=1 );
-        height: 100%;
-        position: absolute;
-        right: 0px;
-        width: 3px;
-    }
-
-    #TD_MenuArea #menu-hamburger {
-        border-width: 0;
-        text-align: right;
-        margin-right: 6px;
-        height: 50px;
-    }
-
-    #TD_MenuArea #menuLabel {
-        margin-top: 0px;
-        white-space: nowrap;
-        margin-left: 0px;
-        padding-left: 10px;
-        background-color: #3B454F !important;
-        /* dark grey blue */
-        line-height: 35px;
-    }
-
-        #IMG_Hamburger_Menu {
-		    border-width: 0;
-		    cursor: pointer;
-		    height: 50px;
-		    width: 50px;
-        }
-
-        #TD_MenuArea #menuLabel .MenuClass {
-            color: #3ADDFE;
-            /* light blue - turquoise */
-            font-size: 16px;
-            text-transform: uppercase;
-            margin: 0 auto;
-            line-height: 35px;
-        }
-
-.menu-width {
-    width: 243px;
-}
+#TD_MenuArea #lineGlowDiv {
+  height: 100%; }
 
 #goToHome {
-    float: left;
+  float: left; }
+
+/* colors */
+#TD_MenuArea {
+  position: relative;
+  background-color: #2B3239; }
+  #TD_MenuArea #lineGlowDiv {
+    background: #3b5366;
+    background: -moz-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, #3b5366), color-stop(100%, #3bddff));
+    background: -webkit-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+    background: -o-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+    background: -ms-linear-gradient(left, #3b5366 0%, #3bddff 100%);
+    background: linear-gradient(to right, #3b5366 0%, #3bddff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b5366', endColorstr='#3bddff', GradientType=1 );
+    position: absolute;
+    right: 0px;
+    width: 3px; }
+  #TD_MenuArea #menu-hamburger {
+    border-width: 0;
+    text-align: right;
+    margin-right: 6px;
+    height: 50px; }
+    #TD_MenuArea #menu-hamburger img {
+      border-width: 0;
+      cursor: pointer;
+      height: 50px;
+      width: 50px; }
+  #TD_MenuArea #menuLabel {
+    margin-top: 0px;
+    white-space: nowrap;
+    margin-left: 0px;
+    padding-left: 10px;
+    background-color: #3B454F !important;
+    line-height: 35px; }
+    #TD_MenuArea #menuLabel.menu-vertical {
+      display: none; }
+    #TD_MenuArea #menuLabel .MenuClass {
+      color: #3BDDFF;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 0 auto;
+      line-height: 35px; }
+
+.menu-width {
+  width: 243px; }
+
+#goToHome {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  cursor: pointer; }
+  #goToHome * {
     display: inline-block;
     vertical-align: middle;
-    white-space: normal;
-    cursor: pointer;
-}
-
-    #goToHome * {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 50px;
-    }
-
-    #goToHome span {
-        color: white;
-        font-size: 14px;
-    }
-
-#homeButton {
+    line-height: 50px; }
+  #goToHome img#homeButton {
     width: 30px;
-    height: 30px;
-}
-
-
-
-#menuTree a{
-    font-size: 14px!important;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#menuTree ul {
-    list-style: none;
-    padding-left: 10px;
-}
-
-#menuTree > ul > li {
-    margin-top: 10px;
-}
-
-.team-node>a {
-    color: #FFF!important;
-
-}
-    .team-node > i {
-        background: url("../../img/pointFolder.png") no-repeat center;
-        width: 20px;
-        height: 15px;
-        float: left;
-    }
-
-
-.team-node, .parent-node, .child-node {
-        color:#FFF;
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;     
-        min-width: 210px;
-        padding-top: 5px;
-}
-
-.parent-node>i, .child-node>i {
-    background: url("../../img/bulletlist.png") no-repeat center;
-    background-size:  10px 17px;
-    width: 18px;
-    height: 22px;
-    float: left;
-}
-
-.parent-node>a, .child-node>a{
+    height: 30px; }
+  #goToHome span {
+    color: #FFFFFF;
+    font-size: 14px; }
+    #goToHome span.menu-vertical {
+      display: none; }
+  #goToHome.menu-vertical {
+    margin-top: 10px; }
+  #goToHome img.menu-vertical {
     display: block;
-    padding-top: 10px;
-    color: #3bddff!important;
-}
+    margin-left: auto;
+    margin-right: auto; }
 
+#menuTree {
+  font-size: 14px; }
+  #menuTree .jqtree-title-folder {
+    background-color: #2B3239 !important;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  #menuTree ul {
+    list-style: none;
+    padding-left: 10px; }
+  #menuTree span {
+    cursor: pointer; }
+  #menuTree > ul > li {
+    margin-top: 10px; }
+    #menuTree > ul > li > div > a.jqtree_common {
+      background: url("../../img/pointFolder.png") no-repeat center;
+      width: 20px;
+      height: 15px;
+      float: left; }
+  #menuTree .bullet-list {
+    min-width: 210px; }
+    #menuTree .bullet-list a {
+      background: url("../../img/bulletlist.png") no-repeat center;
+      width: 18px;
+      height: 22px;
+      float: left; }
+  #menuTree span[aria-level="1"] {
+    color: #FFFFFF; }
+  #menuTree span[aria-level="2"], #menuTree span[aria-level="3"], #menuTree span[aria-level="4"] {
+    color: #3BDDFF;
+    display: inline-block;
+    padding-top: 12px; }
 
-.group-expand.group-hide{
-    display: none;
-}
-
+/*# sourceMappingURL=side-menu.css.map */

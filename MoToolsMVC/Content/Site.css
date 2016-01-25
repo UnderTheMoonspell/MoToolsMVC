@@ -52,7 +52,7 @@ input, select {
   margin: auto 0; }
 
 .InvisibleColumn, .displayNone {
-  display: none!important; }
+  display: none; }
 
 /* text */
 .capitalize {
