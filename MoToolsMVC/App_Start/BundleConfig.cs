@@ -9,7 +9,9 @@ namespace MoToolsMVC
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/vendor/jquery-{version}.js"));
+                        "~/Scripts/vendor/jquery-{version}.js",
+                        "~/Scripts/vendor/jquery-ui.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/vendor/jquery.validate*"));

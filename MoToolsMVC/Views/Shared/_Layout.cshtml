@@ -66,33 +66,12 @@
         <table border="0" cellpadding="0" cellspacing="0" class="body-table">
             <tbody>
                 <tr>
-                    <td id="TD_MenuArea" class="menu-area" valign="top" align="left" style="width: 243px;">
-                        <div id="lineGlowDiv" class="">
-                            &nbsp;
-                        </div>
-                        <div id="menu-hamburger" class="menu-hamburger">
-                            <div id="goToHome" class="">
-
-                                <img id="homeButton" src="../img/home.png" alt="Home" style="border-width:0px;" class="">
-                                <span id="goToHomeText" class="">HOME</span>
-
-                            </div>
-                            <div>
-                                <img alt="Hamburger" id="IMG_Hamburger_Menu" src="../img/MenuIcon.png">
-                            </div>
-                        </div>
-                        <div id="menuLabel" class="container-Menu-Label">
-                            <span class="MenuClass">Menu</span>
-                        </div>
-                        <div id="menuInitialContent" class="menu-width" style="width: 243px; display: block;">
-                            @{Html.RenderAction("Get", "Menu");}
-                        </div>
-                    </td>
+                    @{Html.RenderAction("Get", "Menu");}
                     <td class="default-background" align="left" valign="top">
                         <div class="white-background"></div>
-                        <div ID="MasterPanel" class="fullWidth scrollableX scrollableY"  style="min-height: 800px">
+                        <div id="MasterPanel" class="fullWidth scrollableX scrollableY" style="min-height: 800px">
                             @RenderBody()
-                        </div>                       
+                        </div>
                     </td>
                 </tr>
             </tbody>

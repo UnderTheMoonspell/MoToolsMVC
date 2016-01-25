@@ -2,7 +2,7 @@
 
     var Helpers = {
 
-        init: function() {
+        init: function () {
             window.createCookie = function (name, value, days) {
                 if (days) {
                     var date = new Date();
@@ -26,6 +26,39 @@
 
             window.eraseCookie = function (name) {
                 createCookie(name, "", -1);
+            }
+
+            window.ajaxCall = function (url, type, data, success, error) {
+                $.ajax({
+                    type: type,
+                    url: url,
+                    data: JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (response) {
+                        if (typeof (success) == "function")
+                            success(response);
+                    },
+                    error: function (response) {
+                        if (typeof (error) == "function")
+                            error(response);
+                    }
+                });
+            }
+
+            window.setLocalStorageItem = function (key, object) {
+                localStorage.setItem(key, object);
+            }
+
+            window.getLocalStorageItem = function (key) {
+                return localStorage.getItem(key);
+            }
+
+            window.setSessionStorageItem = function (key, object) {
+                sessionStorage.setItem(key, object);
+            }
+
+            window.getSessionStorageItem = function (key) {
+                return sessionStorage.getItem(key);
             }
         }
     }

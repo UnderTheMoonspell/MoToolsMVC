@@ -1,4 +1,46 @@
-/*CUSTOM JQTREE*/
+.menu-area{
+    width: 243px;
+}
+
+.menu-area.menu-vertical{
+    width: 32px;
+    vertical-align: top;
+}
+
+
+.menu-vertical #goToHome img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-vertical #goToHome{
+    width: 100%!important;
+    margin-top: 10px!important;
+}
+
+.menu-vertical #goToHome span{
+    display: none!important;
+}
+
+.menu-vertical #goToHome span{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-vertical #menuLabel{
+    display: none!important;
+}
+
+#menuInitialContent.menu-vertical{
+    display:none!important;
+}
+
+#menuInitialContent{
+    display: block; 
+}
+
 #TD_MenuArea {
     position: relative;
     background-color: #2b3239;
@@ -27,13 +69,6 @@
         height: 50px;
     }
 
-        #TD_MenuArea #menu-hamburger img {
-            border-width: 0;
-            cursor: pointer;
-            height: 50px;
-            width: 50px;
-        }
-
     #TD_MenuArea #menuLabel {
         margin-top: 0px;
         white-space: nowrap;
@@ -44,8 +79,11 @@
         line-height: 35px;
     }
 
-        #TD_MenuArea #menuLabel.menu-vertical {
-            display: none;
+        #IMG_Hamburger_Menu {
+		    border-width: 0;
+		    cursor: pointer;
+		    height: 50px;
+		    width: 50px;
         }
 
         #TD_MenuArea #menuLabel .MenuClass {
@@ -69,20 +107,10 @@
     cursor: pointer;
 }
 
-    #goToHome img#homeButton {
-        width: 30px;
-        height: 30px;
-    }
-
     #goToHome * {
         display: inline-block;
         vertical-align: middle;
         line-height: 50px;
-    }
-
-    #goToHome.menu-vertical {
-        width: 100%;
-        margin-top: 10px;
     }
 
     #goToHome span {
@@ -90,15 +118,11 @@
         font-size: 14px;
     }
 
-        #goToHome span.menu-vertical {
-            display: none;
-        }
+#homeButton {
+    width: 30px;
+    height: 30px;
+}
 
-    #goToHome img.menu-vertical {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
 
 
 #menuTree a{
@@ -116,11 +140,11 @@
     margin-top: 10px;
 }
 
-[aria-level="1"]>a {
+.team-node>a {
     color: #FFF!important;
 
 }
-    [aria-level="1"] > i {
+    .team-node > i {
         background: url("../../img/pointFolder.png") no-repeat center;
         width: 20px;
         height: 15px;
@@ -128,7 +152,7 @@
     }
 
 
-[aria-level="1"], [aria-level="2"], [aria-level="3"], [aria-level="4"] {
+.team-node, .parent-node, .child-node {
         color:#FFF;
         display: block;
         overflow: hidden;
@@ -138,7 +162,7 @@
         padding-top: 5px;
 }
 
-[aria-level="2"]>i, [aria-level="3"]>i,[aria-level="4"]>i {
+.parent-node>i, .child-node>i {
     background: url("../../img/bulletlist.png") no-repeat center;
     background-size:  10px 17px;
     width: 18px;
@@ -146,7 +170,7 @@
     float: left;
 }
 
-[aria-level="2"]>a, [aria-level="3"]>a,[aria-level="4"]>a{
+.parent-node>a, .child-node>a{
     display: block;
     padding-top: 10px;
     color: #3bddff!important;

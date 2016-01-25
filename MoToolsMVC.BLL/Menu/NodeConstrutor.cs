@@ -49,7 +49,7 @@ namespace MoToolsMVC.BLL.Menu
     {
         public override StringBuilder ReturnNodeHTML
         {
-            get { return new StringBuilder(String.Format("<li class=\"team-node\" aria-level=\"1\"><i></i><a><span>{0}</span></a><ul>", this.MenuName)); }
+            get { return new StringBuilder(String.Format("<li class=\"team-node group-expand\"><i></i><a><span>{0}</span></a><ul>", this.MenuName)); }
         }
 
         public TeamNode(string menuName, string menuUrl)
@@ -63,7 +63,7 @@ namespace MoToolsMVC.BLL.Menu
     {
         public override StringBuilder ReturnNodeHTML
         {
-            get { return new StringBuilder(String.Format("<li class=\"group-expand group-hide\" aria-level=\"2\"><i></i><a><span>{0}</span></a><ul class=\"parent-node\">", this.MenuName)); }
+            get { return new StringBuilder(String.Format("<li class=\"parent-node group-expand group-hide\" aria-level=\"2\"><i></i><a><span>{0}</span></a><ul class=\"parent-node\">", this.MenuName)); }
         }
 
         public ParentNode(string menuName, string menuUrl)
@@ -78,7 +78,7 @@ namespace MoToolsMVC.BLL.Menu
 
         public override StringBuilder ReturnNodeHTML
         {
-            get { return new StringBuilder(String.Format("<li class=\"group-expand group-hide\" aria-level=\"3\" class=\"lowest-child\"><i></i><a href=\"{0}\" >{1}</a></li>", this.MenuUrl, this.MenuName)); }
+            get { return new StringBuilder(String.Format("<li class=\"child-node group-expand group-hide\" aria-level=\"3\" class=\"lowest-child\"><i></i><a href=\"{0}\" >{1}</a></li>", this.MenuUrl, this.MenuName)); }
         }
 
         public ChildNode(string menuName, string menuUrl)

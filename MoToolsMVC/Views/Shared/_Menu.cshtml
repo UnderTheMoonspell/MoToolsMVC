@@ -1,9 +1,31 @@
-﻿@model string
+﻿@model MoToolsMVC.ViewModel.MenuViewModel
 
 @Styles.Render("~/CSS/SideMenu")
-<div id="menuTree" class="" data-src="@Url.Action("Get", "Menu")">
-    @Html.Raw(Model)
-</div>
+<td id="TD_MenuArea" class="menu-area @(@Model.isMenuOpen == true ? "" : "menu-vertical")" style="width: 36px;">
+    <div id="lineGlowDiv">
+        &nbsp;
+    </div>
+    <div id="menu-hamburger" class="menu-hamburger">
+        <div id="goToHome" >
+
+            <img id="homeButton" src="../img/home.png" alt="Home" style="border-width:0px;">
+            <span id="goToHomeText" >HOME</span>
+
+        </div>
+        <div>
+            <img alt="Hamburger" id="IMG_Hamburger_Menu" src="../img/MenuIcon.png" data-src="@Url.Action("SetMenuCookie", "Menu")">
+        </div>
+    </div>
+    <div id="menuLabel" class="container-Menu-Label">
+        <span class="MenuClass">Menu</span>
+    </div>
+    <div id="menuInitialContent" class="menu-width @(@Model.isMenuOpen == true ? "" : "displayNone")">
+        <div id="menuTree">
+            @Html.Raw(Model.MenuTree)
+        </div>
+    </div>
+</td>
+
 @Scripts.Render("~/bundles/Menu")
 
 
