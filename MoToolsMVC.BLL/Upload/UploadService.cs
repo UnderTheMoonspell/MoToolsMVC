@@ -1,5 +1,5 @@
-﻿//using Microsoft.WindowsAzure.Storage;
-//using Microsoft.WindowsAzure.Storage.Blob;
+﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using MoToolsMVC.DAL;
 using System;
 using System.Collections.Generic;
@@ -623,43 +623,43 @@ namespace MoToolsMVC.BLL.Upload
         public string UploadToAzure(Stream stream, string filename, Guid? requestId)
         {
             //TODO: Fix Microsoft.WindowsAzure.Storage token error
-            return "";
-            //try
-            //{
-            //    // Retrieve storage account from connection string.
-            //    //TODO: Uncomment
-            //    // CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["UploadAttachmentsAzure"]);
-            //    CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=evalyzecontax;AccountKey= b+xqe6/41948Q3pUCK5M8HOddMK/V2xIZ3+gc72VoT6CVfSV2tM5ERzOt2l7bo9R7Ywq0TGcggiykhOrMl2nAg=="); 
+            
+            try
+            {
+                // Retrieve storage account from connection string.
+                //TODO: Uncomment
+                // CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["UploadAttachmentsAzure"]);
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=evalyzecontax;AccountKey= b+xqe6/41948Q3pUCK5M8HOddMK/V2xIZ3+gc72VoT6CVfSV2tM5ERzOt2l7bo9R7Ywq0TGcggiykhOrMl2nAg=="); 
 
-            //    // Create the blob client.
-            //    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                // Create the blob client.
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            //    // Retrieve reference to a previously created container.
-            //    CloudBlobContainer container = blobClient.GetContainerReference(requestId.ToString().ToLower());
+                // Retrieve reference to a previously created container.
+                CloudBlobContainer container = blobClient.GetContainerReference(requestId.ToString().ToLower());
 
-            //    // Create the container if it doesn't already exist.
-            //    container.CreateIfNotExists();
+                // Create the container if it doesn't already exist.
+                container.CreateIfNotExists();
 
-            //    container.SetPermissions(new BlobContainerPermissions
-            //    {
-            //        PublicAccess = BlobContainerPublicAccessType.Blob
-            //    });
+                container.SetPermissions(new BlobContainerPermissions
+                {
+                    PublicAccess = BlobContainerPublicAccessType.Blob
+                });
 
-            //    // Retrieve reference to a blob named "myblob".
-            //    CloudBlockBlob blockBlob = container.GetBlockBlobReference(Guid.NewGuid().ToString().ToLower() + "/" + filename);
+                // Retrieve reference to a blob named "myblob".
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(Guid.NewGuid().ToString().ToLower() + "/" + filename);
 
-            //    string extension = filename.Substring(filename.LastIndexOf(".") + 1);
-            //    blockBlob.Properties.ContentType = MimeTypes.GetMimeType(extension);
+                string extension = filename.Substring(filename.LastIndexOf(".") + 1);
+                blockBlob.Properties.ContentType = MimeTypes.GetMimeType(extension);
 
-            //    stream.Position = 0;
-            //    blockBlob.UploadFromStream(stream);
+                stream.Position = 0;
+                blockBlob.UploadFromStream(stream);
 
-            //    return blockBlob.Uri.AbsoluteUri;
-            //}
-            //catch (Exception)
-            //{
-            //    return "";
-            //}
+                return blockBlob.Uri.AbsoluteUri;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
         }
 
         public void SaveAttachmentToBD(string url, Guid requestID, Guid? activityID, string attachmentName, string username, Guid? attachmentType)
