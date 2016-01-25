@@ -124,11 +124,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Get_All_Case_DDLOptions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Get_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="varchar" Mode="In" />
         </Function>
         <Function Name="Get_Menu_MVC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Insert_Attachment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Url" Type="varchar" Mode="In" />
+          <Parameter Name="RequestID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ActivityID" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="AttachmentName" Type="varchar" Mode="In" />
+          <Parameter Name="FK_User" Type="varchar" Mode="In" />
+          <Parameter Name="AttachmentType" Type="uniqueidentifier" Mode="In" />
         </Function>
         <EntityContainer Name="CON_EvalyzeMotools_DEV_201504ModelStoreContainer">
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
@@ -191,6 +200,15 @@
             <End Role="UsersRCA" EntitySet="UsersRCA" />
             <End Role="UsersRCA1" EntitySet="UsersRCA" />
           </AssociationSet>
+          <FunctionImport Name="Get_All_Case_DDLOptions" ReturnType="Collection(CON_EvalyzeMotools_DEV_201504Model.Get_All_Case_DDLOptions_Result)" />
+          <FunctionImport Name="Insert_Attachment" ReturnType="Collection(Guid)">
+            <Parameter Name="Url" Mode="In" Type="String" />
+            <Parameter Name="RequestID" Mode="In" Type="Guid" />
+            <Parameter Name="ActivityID" Mode="In" Type="Guid" />
+            <Parameter Name="AttachmentName" Mode="In" Type="String" />
+            <Parameter Name="FK_User" Mode="In" Type="String" />
+            <Parameter Name="AttachmentType" Mode="In" Type="Guid" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Get_Menu_Result">
           <Property Type="Int32" Name="ID" Nullable="true" />
@@ -341,6 +359,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Get_All_Case_DDLOptions_Result">
+          <Property Type="Guid" Name="Option_Id" Nullable="false" />
+          <Property Type="String" Name="Option_Description" Nullable="true" />
+          <Property Type="String" Name="Option_Key" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Option_Type" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Option_Active" Nullable="false" />
+          <Property Type="DateTime" Name="Option_CreateDate" Nullable="false" Precision="23" />
+          <Property Type="Guid" Name="Option_FkParent" Nullable="true" />
+          <Property Type="Guid" Name="Rel_Id" Nullable="true" />
+          <Property Type="Guid" Name="Rel_FK_Option_Id" Nullable="true" />
+          <Property Type="String" Name="Rel_Type" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Rel_Team" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -438,6 +469,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Get_All_Case_DDLOptions" FunctionName="CON_EvalyzeMotools_DEV_201504Model.Store.Get_All_Case_DDLOptions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CON_EvalyzeMotools_DEV_201504Model.Get_All_Case_DDLOptions_Result">
+                <ScalarProperty Name="Option_Id" ColumnName="Option_Id" />
+                <ScalarProperty Name="Option_Description" ColumnName="Option_Description" />
+                <ScalarProperty Name="Option_Key" ColumnName="Option_Key" />
+                <ScalarProperty Name="Option_Type" ColumnName="Option_Type" />
+                <ScalarProperty Name="Option_Active" ColumnName="Option_Active" />
+                <ScalarProperty Name="Option_CreateDate" ColumnName="Option_CreateDate" />
+                <ScalarProperty Name="Option_FkParent" ColumnName="Option_FkParent" />
+                <ScalarProperty Name="Rel_Id" ColumnName="Rel_Id" />
+                <ScalarProperty Name="Rel_FK_Option_Id" ColumnName="Rel_FK_Option_Id" />
+                <ScalarProperty Name="Rel_Type" ColumnName="Rel_Type" />
+                <ScalarProperty Name="Rel_Team" ColumnName="Rel_Team" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Insert_Attachment" FunctionName="CON_EvalyzeMotools_DEV_201504Model.Store.Insert_Attachment" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

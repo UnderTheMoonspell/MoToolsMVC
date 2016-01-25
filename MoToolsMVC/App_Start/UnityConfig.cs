@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using MoToolsMVC.DAL;
 using MoToolsMVC.BLL.Menu;
+using MoToolsMVC.BLL;
 
 namespace MoToolsMVC.App_Start
 {
@@ -39,8 +40,7 @@ namespace MoToolsMVC.App_Start
 
             // TODO: Register your types here
             container.RegisterType<IUnitOfWork, UnitOfWork>();
-            container.RegisterType<IMenuService, MenuService>();
-            container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IServiceUnitOfWork, ServiceUnitOfWork>();
         }
     }
 }

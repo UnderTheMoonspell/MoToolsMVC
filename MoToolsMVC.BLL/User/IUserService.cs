@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoToolsMVC.BLL.Menu
+namespace MoToolsMVC.BLL.User
 {
     public interface IUserService : IMoToolsService
     {

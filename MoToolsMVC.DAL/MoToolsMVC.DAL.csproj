@@ -50,7 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaseDDLOptions\CaseDDLOptionsRepository.cs" />
+    <Compile Include="CaseDDLOptions\ICaseDDLOptionsRepository.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="Get_All_Case_DDLOptions_Result.cs">
+      <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Get_Menu_MVC_Result.cs">
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
@@ -87,11 +92,11 @@
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="UnitOfWork.cs" />
+    <Compile Include="Upload\IUploadRepository.cs" />
+    <Compile Include="Upload\UploadRepository.cs" />
     <Compile Include="UsersRCA.cs">
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="User\IUserRepository.cs" />
-    <Compile Include="User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

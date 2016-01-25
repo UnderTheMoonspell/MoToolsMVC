@@ -5,20 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoToolsMVC.BLL.User
+namespace MoToolsMVC.BLL.CaseDDLOptions
 {
-    public class UserService : IUserService
+    public class CaseDDLOptionsService : ICaseDDLOptionsService
     {
-        private IUnitOfWork _unitOfWork;
-        public UserService(IUnitOfWork unitOfWork)
+        private IUnitOfWork _unitOfWork { get; set; }
+
+        public CaseDDLOptionsService(IUnitOfWork unitOfWork)
         {
-            this._unitOfWork = unitOfWork;           
+            this._unitOfWork = unitOfWork;
         }
 
-        public UsersRCA GetUser(string username)
+        public List<CaseDDLOption> GetUploadAttachmentTypes(int team)
         {
-            UsersRCA user = _unitOfWork.UserRepository.GetById(username);
-            return user;
+            return _unitOfWork.CaseDDLOptionsRepository.Get_Upload_Attachment_Types(team).Select(c => new CaseDDLOption(c)).ToList();
         }
 
         public void Dispose()

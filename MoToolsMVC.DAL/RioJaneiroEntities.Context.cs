@@ -49,5 +49,39 @@ namespace MoToolsMVC.DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Menu_MVC_Result>("Get_Menu_MVC", usernameParameter);
         }
+    
+        public virtual ObjectResult<Get_All_Case_DDLOptions_Result> Get_All_Case_DDLOptions()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_All_Case_DDLOptions_Result>("Get_All_Case_DDLOptions");
+        }
+    
+        public virtual ObjectResult<Nullable<System.Guid>> Insert_Attachment(string url, Nullable<System.Guid> requestID, Nullable<System.Guid> activityID, string attachmentName, string fK_User, Nullable<System.Guid> attachmentType)
+        {
+            var urlParameter = url != null ?
+                new ObjectParameter("Url", url) :
+                new ObjectParameter("Url", typeof(string));
+    
+            var requestIDParameter = requestID.HasValue ?
+                new ObjectParameter("RequestID", requestID) :
+                new ObjectParameter("RequestID", typeof(System.Guid));
+    
+            var activityIDParameter = activityID.HasValue ?
+                new ObjectParameter("ActivityID", activityID) :
+                new ObjectParameter("ActivityID", typeof(System.Guid));
+    
+            var attachmentNameParameter = attachmentName != null ?
+                new ObjectParameter("AttachmentName", attachmentName) :
+                new ObjectParameter("AttachmentName", typeof(string));
+    
+            var fK_UserParameter = fK_User != null ?
+                new ObjectParameter("FK_User", fK_User) :
+                new ObjectParameter("FK_User", typeof(string));
+    
+            var attachmentTypeParameter = attachmentType.HasValue ?
+                new ObjectParameter("AttachmentType", attachmentType) :
+                new ObjectParameter("AttachmentType", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.Guid>>("Insert_Attachment", urlParameter, requestIDParameter, activityIDParameter, attachmentNameParameter, fK_UserParameter, attachmentTypeParameter);
+        }
     }
 }

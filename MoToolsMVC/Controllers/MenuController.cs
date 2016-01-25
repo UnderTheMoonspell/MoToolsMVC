@@ -13,11 +13,11 @@ namespace MoToolsMVC.Controllers
 {
     public class MenuController : Controller
     {
-        private IMenuService _menuservice;
+        private IServiceUnitOfWork _serviceUnitOfWork;
 
-        public MenuController(IMenuService menuService)
+        public MenuController(IServiceUnitOfWork serviceUnitOfWork)
         {
-            this._menuservice = menuService;
+            this._serviceUnitOfWork = serviceUnitOfWork;
         }
 
         [HttpGet]
@@ -28,7 +28,7 @@ namespace MoToolsMVC.Controllers
             MenuViewModel menuVM = new MenuViewModel(menuTree, isMenuOpen);
             if (menuTree == null)
             {
-                menuTree = _menuservice.GetMenuByUser(username, HttpContext.Request.ApplicationPath.ToString());
+                menuTree = _serviceUnitOfWork.MenuService.GetMenuByUser(username, HttpContext.Request.ApplicationPath.ToString());
                 Helper.Session.SetSession(SessionNames.MenuTree, menuTree);                
                 menuVM.MenuTree = menuTree;
                 menuVM.isMenuOpen = isMenuOpen == true ? isMenuOpen : false;
@@ -45,7 +45,7 @@ namespace MoToolsMVC.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            _menuservice.Dispose();
+            _serviceUnitOfWork.Dispose();
             base.Dispose(disposing);
         }
 

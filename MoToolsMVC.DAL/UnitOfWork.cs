@@ -1,5 +1,6 @@
-﻿using MoToolsMVC.DAL.Menu;
-using MoToolsMVC.DAL.User;
+﻿using MoToolsMVC.DAL.CaseDDLOptions;
+using MoToolsMVC.DAL.Menu;
+using MoToolsMVC.DAL.Upload;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace MoToolsMVC.DAL
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private RioJaneiroEntities _dbContext;
         private IMenuRepository _menuRepository;
         private IGenericRepository<UsersRCA> _userRepository;
+        private ICaseDDLOptionsRepository _caseDDLOptionsRepository;
+        private IUploadRepository _uploadRepository;
 
         public UnitOfWork()
         {
@@ -43,13 +46,38 @@ namespace MoToolsMVC.DAL
             {
                 if (this._userRepository == null)
                 {
-                    this._userRepository = new UserRepository(_dbContext);
+                    this._userRepository = new GenericRepository<UsersRCA>(_dbContext);
                 }
                 return _userRepository;
             }
         }
 
+        public ICaseDDLOptionsRepository CaseDDLOptionsRepository
+        {
+            get
+            {
+                if (this._caseDDLOptionsRepository == null)
+                {
+                    this._caseDDLOptionsRepository = new CaseDDLOptionsRepository(_dbContext);
+                }
+                return _caseDDLOptionsRepository;
+            }
+        }
+
+        public IUploadRepository UploadRepository
+        {
+            get
+            {
+                if (this._uploadRepository == null)
+                {
+                    this._uploadRepository = new UploadRepository(_dbContext);
+                }
+                return _uploadRepository;
+            }
+        }
+
         #endregion
+
         #region IDisposable
 
         public void Dispose()

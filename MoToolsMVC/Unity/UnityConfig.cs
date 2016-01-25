@@ -1,5 +1,6 @@
 ﻿using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Mvc;
+using MoToolsMVC.BLL;
 using MoToolsMVC.BLL.Menu;
 using MoToolsMVC.DAL;
 using System;
@@ -43,7 +44,7 @@ namespace MoToolsMVC.Unity
 
             //Bind the various domain model services and repositories that e.g. our controllers require         
             container.BindInRequestScope<IUnitOfWork, UnitOfWork>();
-            container.BindInRequestScope<IMenuService, MenuService>();
+            container.BindInRequestScope<IServiceUnitOfWork, ServiceUnitOfWork>();
 
             //container.BindInRequestScope<ISessionHelper, SessionHelper>();
 
