@@ -322,6 +322,7 @@
       <DebugInfo>False</DebugInfo>
     </Content>
     <Content Include="Content\MyBO.css" />
+    <Content Include="Content\upload.css" />
     <Content Include="Content\vendor\alertify\alertify.bootstrap.css" />
     <Content Include="Content\vendor\alertify\alertify.core.css" />
     <Content Include="Content\vendor\alertify\alertify.default.css" />
@@ -472,6 +473,7 @@
     <Content Include="Content\CloserDataTablesTheme.css" />
     <Content Include="Content\CloserMultiSelector.css" />
     <Content Include="Content\FormSeparators.css" />
+    <Content Include="Scripts\app\upload.js" />
     <Content Include="Scripts\helpers\helpers.js" />
     <Content Include="Content\loginV2.css" />
     <Content Include="Scripts\main.js" />

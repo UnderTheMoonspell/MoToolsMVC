@@ -54,6 +54,11 @@ namespace MoToolsMVC
                 "~/Scripts/helpers/helpers.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/Upload").Include(
+                "~/Scripts/app/upload.js",
+                "~/Scripts/vendor/jquery.form.min.js"
+            ));
+
             #endregion
 
             #region Styles
@@ -79,6 +84,10 @@ namespace MoToolsMVC
                 "~/Content/vendor/alertify/alertify.core.css",
                 "~/Content/vendor/alertify/alertify.default.css",
                 "~/Content/CloserAlertifyTheme.css"
+            ));
+
+            bundles.Add(new StyleBundle("~/CSS/Upload").Include(
+                "~/Content/upload.css"
             ));
 
             #endregion

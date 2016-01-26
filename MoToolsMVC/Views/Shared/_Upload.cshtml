@@ -7,117 +7,9 @@
         <br>
         <div id="ctl00_Content1_PanelDatatable" class="divBegining fullWidth whiteBackground">
 
-            <style>
-                .attachments-list-container {
-                    margin: 5px 0px;
-                    padding: 10px;
-                    font-size: 11px;
-                    border: 2px groove threedface;
-                }
-
-                .attachments-list {
-                    border-color: #DDDDDD;
-                    border-width: 1px;
-                    border-style: Solid;
-                    border-collapse: collapse;
-                    padding: 4px;
-                }
-
-                .attachment-type-container {
-                    text-align: left;
-                    padding-left: 20%;
-                }
-
-                .attachment-type {
-                    font-size: 12px;
-                    width: 30%;
-                }
-
-                label[for=attachment-type] {
-                    font-size: 12px;
-                }
-
-                .attachment-file {
-                    width: 355px;
-                }
-            </style>
-
-            <script>
-                $(document).ready(function () {
-                    function UploadManager() {
-                        var _uploadContainer,
-                            _this = this;
-
-                        this.setupPopup = function () {
-                            var combo = $('.attachment-type', _uploadContainer);
-                            if (!$('option', combo).length) {
-                                $.get('/Team/GetUploadAttachmentTypes', {}, function (data) {
-                                    data.forEach(function (option) {
-                                        combo.append($('<option/>', { text: option.Text, value: option.ID }));
-                                    });
-                                    showPopup();
-                                });
-                            } else {
-                                showPopup();
-                            };
-                        };
-
-                        this.saveAttachment = function () {
-                            var formData = new FormData(),
-                                file = $('.attachment-file', _uploadContainer)[0].files[0],
-                                attachment_type = $('.attachment-type', _uploadContainer).val();
-
-                            formData.append('file', file);
-                            var xhr = new XMLHttpRequest();
-                            xhr.open('POST', '/Team/SaveAttachment?type=' + attachment_type, true);
-                            xhr.setRequestHeader('Content-Type', file.type);
-                            xhr.onload = function () {
-                                if (xhr.status === 200) {
-                                    //TODO: File uploaded callback
-                                    alert("Uploaded successfully");
-                                } else {
-                                    //TODO: Upload error callback
-                                    alert("Error uploading");
-                                }
-                            };
-                            xhr.send(formData);
-
-                            closePopup();
-                        };
-
-                        this.showPopup = function () {
-                            $('.upload-popup', _uploadContainer).show();
-                            clearFileInput();
-                        };
-
-                        this.closePopup = function (e) {
-                            e.preventDefault();
-                            $('.upload-popup', _uploadContainer).hide();
-                            clearFileInput();
-                        };
-
-                        this.clearFileInput = function () {
-                            $('.attachment-file', _uploadContainer).wrap('<form>').closest('form').get(0).reset();
-                            $('.attachment-file', _uploadContainer).unwrap();
-                        };
-
-                        return {
-                            init: function (uploadContainer) {
-                                _uploadContainer = uploadContainer;
-                                $('.attachment-popup-open', uploadContainer).click(_this.setupPopup);
-                                //$('.save-attachment', uploadContainer).click(_this.saveAttachment);
-                                $('.close-popup', uploadContainer).click(_this.closePopup);
-                            }
-                        }
-                    };
-
-                    $('.upload-container').each(function (i, uploadContainer) {
-                        UploadManager().init(uploadContainer);
-                    });
-                });
-            </script>
-
             @* ---------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
+            @Styles.Render("~/CSS/Upload")
 
             <div class="upload-container">
                 <div class="blockContainer">
@@ -132,7 +24,7 @@
                             <div class="alertify-cover"></div>
                             <div class="alertify alertify-confirm" style="top: 10%;">
                                 <div class="alertify-dialog">
-                                    @using (Html.BeginForm("SaveAttachment", "Team", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    @using (Html.BeginForm("SaveAttachment", "Team", FormMethod.Post, new { enctype = "multipart/form-data", @class="attachment-form" }))
                                     {
                                         <div class="alertify-inner">
                                             <p class="alertify-title">Arquivos</p>
@@ -168,6 +60,8 @@
                     </div>
                 </div>
             </div>
+
+            @Scripts.Render("~/bundles/Upload")
 
             @* ---------------------------------------------------------------------------------------------------------------------------------------------------- *@
 
