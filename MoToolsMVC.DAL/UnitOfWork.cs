@@ -1,6 +1,6 @@
-﻿using MoToolsMVC.DAL.CaseDDLOptions;
+﻿using MoToolsMVC.DAL.Attachment;
+using MoToolsMVC.DAL.CaseDDLOptions;
 using MoToolsMVC.DAL.Menu;
-using MoToolsMVC.DAL.Upload;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace MoToolsMVC.DAL
         private IMenuRepository _menuRepository;
         private IGenericRepository<UsersRCA> _userRepository;
         private ICaseDDLOptionsRepository _caseDDLOptionsRepository;
-        private IUploadRepository _uploadRepository;
+        private IAttachmentRepository _attachmentsRepository;
 
         public UnitOfWork()
         {
@@ -64,15 +64,15 @@ namespace MoToolsMVC.DAL
             }
         }
 
-        public IUploadRepository UploadRepository
+        public IAttachmentRepository AttachmentsRepository
         {
             get
             {
-                if (this._uploadRepository == null)
+                if (this._attachmentsRepository == null)
                 {
-                    this._uploadRepository = new UploadRepository(_dbContext);
+                    this._attachmentsRepository = new AttachmentRepository(_dbContext);
                 }
-                return _uploadRepository;
+                return _attachmentsRepository;
             }
         }
 

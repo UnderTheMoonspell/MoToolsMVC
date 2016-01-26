@@ -1,6 +1,6 @@
 ﻿using MoToolsMVC.BLL.CaseDDLOptions;
 using MoToolsMVC.BLL.Menu;
-using MoToolsMVC.BLL.Upload;
+using MoToolsMVC.BLL.Attachments;
 using MoToolsMVC.BLL.User;
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,6 @@ namespace MoToolsMVC.BLL
         IUserService UserService { get; }
         IMenuService MenuService { get; }
         ICaseDDLOptionsService CaseDDLOptionsService { get; }
-        IUploadService UploadService { get; }
+        IAttachmentsService AttachmentsService { get; }
     }
 }

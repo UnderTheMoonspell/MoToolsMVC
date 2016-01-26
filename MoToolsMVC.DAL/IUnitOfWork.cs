@@ -1,6 +1,6 @@
-﻿using MoToolsMVC.DAL.CaseDDLOptions;
+﻿using MoToolsMVC.DAL.Attachment;
+using MoToolsMVC.DAL.CaseDDLOptions;
 using MoToolsMVC.DAL.Menu;
-using MoToolsMVC.DAL.Upload;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,6 @@ namespace MoToolsMVC.DAL
         IMenuRepository MenuRepository { get; }
         IGenericRepository<UsersRCA> UserRepository { get; }
         ICaseDDLOptionsRepository CaseDDLOptionsRepository { get; }
-        IUploadRepository UploadRepository { get; }
+        IAttachmentRepository AttachmentsRepository { get; }
     }
 }

@@ -16,9 +16,17 @@ namespace MoToolsMVC.BLL.CaseDDLOptions
             this._unitOfWork = unitOfWork;
         }
 
-        public List<CaseDDLOption> GetUploadAttachmentTypes(int team)
+        public List<CaseDDLOption> GetCaseDDLOptions(string type, int team)
         {
-            return _unitOfWork.CaseDDLOptionsRepository.Get_Upload_Attachment_Types(team).Select(c => new CaseDDLOption(c)).ToList();
+            List<Get_All_Case_DDLOptions_Result> cacheOptions = new List<Get_All_Case_DDLOptions_Result>(); //TODO: Get from cache
+
+            if (cacheOptions.Count == 0)
+            {
+                cacheOptions = _unitOfWork.CaseDDLOptionsRepository.Get_All_Case_DDLOptions();
+                //TODO: Save in cache
+            }
+            return cacheOptions.Where(o => o.Rel_Team == team && o.Rel_Type == type)
+                .OrderBy(o => o.Option_Description).Select(c => new CaseDDLOption(c)).ToList();
         }
 
         public void Dispose()

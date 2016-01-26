@@ -8,7 +8,6 @@ namespace MoToolsMVC.DAL.CaseDDLOptions
 {
     public interface ICaseDDLOptionsRepository
     {
-        List<Get_All_Case_DDLOptions_Result> Get_All_Case_DDLOptions(string type, int team);
-        List<Get_All_Case_DDLOptions_Result> Get_Upload_Attachment_Types(int team);
+        List<Get_All_Case_DDLOptions_Result> Get_All_Case_DDLOptions();
     }
 }

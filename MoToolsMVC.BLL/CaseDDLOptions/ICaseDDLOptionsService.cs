@@ -9,6 +9,6 @@ namespace MoToolsMVC.BLL.CaseDDLOptions
 {
     public interface ICaseDDLOptionsService : IMoToolsService
     {
-        List<CaseDDLOption> GetUploadAttachmentTypes(int team);
+        List<CaseDDLOption> GetCaseDDLOptions(string type, int team);
     }
 }

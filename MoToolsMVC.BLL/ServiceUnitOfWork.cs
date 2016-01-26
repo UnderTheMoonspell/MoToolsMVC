@@ -1,6 +1,6 @@
 ﻿using MoToolsMVC.BLL.CaseDDLOptions;
 using MoToolsMVC.BLL.Menu;
-using MoToolsMVC.BLL.Upload;
+using MoToolsMVC.BLL.Attachments;
 using MoToolsMVC.BLL.User;
 using MoToolsMVC.DAL;
 using System;
@@ -17,7 +17,7 @@ namespace MoToolsMVC.BLL
         private IMenuService _menuService;
         private IUserService _userService;
         private ICaseDDLOptionsService _caseDDLOptionsService;
-        private IUploadService _uploadService;
+        private IAttachmentsService _attachmentsService;
 
         public ServiceUnitOfWork(IUnitOfWork unitOfWork)
         {
@@ -62,15 +62,15 @@ namespace MoToolsMVC.BLL
             }
         }
 
-        public IUploadService UploadService
+        public IAttachmentsService AttachmentsService
         {
             get
             {
-                if (this._uploadService == null)
+                if (this._attachmentsService == null)
                 {
-                    this._uploadService = new UploadService(_unitOfWork);
+                    this._attachmentsService = new AttachmentsService(_unitOfWork);
                 }
-                return _uploadService;
+                return _attachmentsService;
             }
         }
 

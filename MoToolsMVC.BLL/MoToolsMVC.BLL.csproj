@@ -81,8 +81,8 @@
     <Compile Include="CaseDDLOptions\ICaseDDLOptionsService.cs" />
     <Compile Include="CaseDDLOptions\CaseDDLOptionsService.cs" />
     <Compile Include="ServiceUnitOfWork.cs" />
-    <Compile Include="Upload\IUploadService.cs" />
-    <Compile Include="Upload\UploadService.cs" />
+    <Compile Include="Attachments\IAttachmentsService.cs" />
+    <Compile Include="Attachments\AttachmentsService.cs" />
     <Compile Include="User\IUserService.cs" />
     <Compile Include="User\UserService.cs" />
   </ItemGroup>

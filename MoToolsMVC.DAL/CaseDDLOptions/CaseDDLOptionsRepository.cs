@@ -8,21 +8,16 @@ namespace MoToolsMVC.DAL.CaseDDLOptions
 {
     public class CaseDDLOptionsRepository: ICaseDDLOptionsRepository
     {
-        List<Get_All_Case_DDLOptions_Result> _ddlOptions;
+        RioJaneiroEntities _dbcontext;
+
         public CaseDDLOptionsRepository(RioJaneiroEntities dbcontext)
         {
-            //TODO: Save in cache
-            this._ddlOptions = dbcontext.Get_All_Case_DDLOptions().ToList();
+            this._dbcontext = dbcontext;
         }
 
-        public List<Get_All_Case_DDLOptions_Result> Get_All_Case_DDLOptions(string type, int team)
+        public List<Get_All_Case_DDLOptions_Result> Get_All_Case_DDLOptions()
         {
-            return _ddlOptions.Where(o => o.Option_Type == type && o.Rel_Team == team).OrderBy(o => o.Option_Description).ToList();
-        }
-
-        public List<Get_All_Case_DDLOptions_Result> Get_Upload_Attachment_Types(int team)
-        {
-            return Get_All_Case_DDLOptions("UCAttachmentOptions", team);
+            return _dbcontext.Get_All_Case_DDLOptions().ToList();
         }
     }
 }

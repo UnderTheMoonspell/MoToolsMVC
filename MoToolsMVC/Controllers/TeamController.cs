@@ -18,6 +18,7 @@ namespace MoToolsMVC.Controllers
 
         //TODO: DEV
         //Get RequestId and ActivityId and AttachmentType
+        public int BDTeamId { get { return 515; } }
         public Guid requestID { get { return new Guid("bf30c6b5-b97b-4adb-959b-f8f3d12b58d8"); } }
         public Guid? activityID { get { return new Guid("d6a257e6-b8fe-40b6-82d8-e0546656bd37"); } }
         public string username { get { return "boanateladmin"; } }
@@ -29,18 +30,9 @@ namespace MoToolsMVC.Controllers
 
         public ActionResult GetUploadAttachmentTypes()
         {
-            int team;
-
-            if (!int.TryParse(Session["BDTeam"].ToString(), out team))
-            {
-                return Json(null, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                List<CaseDDLOption> list = _serviceUnitOfWork.CaseDDLOptionsService.GetUploadAttachmentTypes(team);
-                list = list.OrderBy(o => o.Text).ToList();
-                return Json(list, JsonRequestBehavior.AllowGet);
-            }
+            List<CaseDDLOption> list = _serviceUnitOfWork.AttachmentsService.GetUploadAttachmentTypes(BDTeamId);
+            list = list.OrderBy(o => o.Text).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult SaveAttachment()
@@ -61,8 +53,8 @@ namespace MoToolsMVC.Controllers
                 {
                     HttpPostedFileBase file = Request.Files[i];
                     attachmentName = file.FileName;
-                    var url = _serviceUnitOfWork.UploadService.UploadToAzure(file.InputStream, attachmentName, requestID);
-                    _serviceUnitOfWork.UploadService.SaveAttachmentToBD(url, requestID, activityID, attachmentName, username, attachmentType);
+                    var url = _serviceUnitOfWork.AttachmentsService.UploadToAzure(file.InputStream, attachmentName, requestID);
+                    _serviceUnitOfWork.AttachmentsService.SaveAttachmentToBD(url, requestID, activityID, attachmentName, username, attachmentType);
                 }
             }
             catch (Exception)

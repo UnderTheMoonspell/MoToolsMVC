@@ -92,8 +92,8 @@
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="UnitOfWork.cs" />
-    <Compile Include="Upload\IUploadRepository.cs" />
-    <Compile Include="Upload\UploadRepository.cs" />
+    <Compile Include="Attachment\IAttachmentRepository.cs" />
+    <Compile Include="Attachment\AttachmentRepository.cs" />
     <Compile Include="UsersRCA.cs">
       <DependentUpon>RioJaneiroEntities.tt</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using MoToolsMVC.BLL.CaseDDLOptions;
 using MoToolsMVC.DAL;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoToolsMVC.BLL.Upload
+namespace MoToolsMVC.BLL.Attachments
 {
-    public class UploadService: IUploadService
+    public class AttachmentsService : IAttachmentsService
     {
         private IUnitOfWork _unitOfWork { get; set; }
 
-        public UploadService(IUnitOfWork unitOfWork)
+        public AttachmentsService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
         }
@@ -620,6 +621,12 @@ namespace MoToolsMVC.BLL.Upload
 
         }
 
+        public List<CaseDDLOption> GetUploadAttachmentTypes(int team)
+        {
+            ICaseDDLOptionsService caseDDLOptionsService = new CaseDDLOptionsService(_unitOfWork);
+            return caseDDLOptionsService.GetCaseDDLOptions("UCAttachmentOptions", team).ToList();
+        }
+
         public string UploadToAzure(Stream stream, string filename, Guid? requestId)
         {
             //TODO: Fix Microsoft.WindowsAzure.Storage token error
@@ -664,7 +671,7 @@ namespace MoToolsMVC.BLL.Upload
 
         public void SaveAttachmentToBD(string url, Guid requestID, Guid? activityID, string attachmentName, string username, Guid? attachmentType)
         {
-            _unitOfWork.UploadRepository.SaveAttachment(url, requestID, activityID, attachmentName, username, attachmentType);
+            _unitOfWork.AttachmentsRepository.SaveAttachment(url, requestID, activityID, attachmentName, username, attachmentType);
         }
 
         public void Dispose()
