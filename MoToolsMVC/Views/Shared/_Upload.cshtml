@@ -24,7 +24,7 @@
                             <div class="alertify-cover"></div>
                             <div class="alertify alertify-confirm" style="top: 10%;">
                                 <div class="alertify-dialog">
-                                    @using (Html.BeginForm("SaveAttachment", "Team", FormMethod.Post, new { enctype = "multipart/form-data", @class="attachment-form" }))
+                                    @using (Html.BeginForm("SaveAttachment", "Team", FormMethod.Post, new { enctype = "multipart/form-data", @class = "attachment-form" }))
                                     {
                                         <div class="alertify-inner">
                                             <p class="alertify-title">Arquivos</p>
@@ -42,8 +42,8 @@
                                             </div>
 
                                             <div class="alertify-buttons">
-                                                <input type="submit" value="Cancelar" class="alertify-button alertify-button-cancel close-popup" name="close-popup" title="Cancelar">
-                                                <input type="submit" value="Salvar" class="alertify-button alertify-button-ok save-attachment" name="save-attachment" title="Salvar Anexo">
+                                                <input type="submit" value="Cancelar" class="alertify-button alertify-button-cancel close-popup" title="Cancelar">
+                                                <input type="submit" value="Salvar" class="alertify-button alertify-button-ok save-attachment" title="Salvar Anexo">
                                             </div>
                                         </div>
                                     }

@@ -16,6 +16,12 @@ namespace MoToolsMVC.Controllers
     {
         private IServiceUnitOfWork _serviceUnitOfWork;
 
+        //TODO: DEV
+        //Get RequestId and ActivityId and AttachmentType
+        public Guid requestID { get { return new Guid("bf30c6b5-b97b-4adb-959b-f8f3d12b58d8"); } }
+        public Guid? activityID { get { return new Guid("d6a257e6-b8fe-40b6-82d8-e0546656bd37"); } }
+        public string username { get { return "boanateladmin"; } }
+
         public TeamController(IServiceUnitOfWork serviceUnitOfWork)
         {
             this._serviceUnitOfWork = serviceUnitOfWork;
@@ -24,11 +30,6 @@ namespace MoToolsMVC.Controllers
         public ActionResult GetUploadAttachmentTypes()
         {
             int team;
-
-            // ---------------------------
-            //TODO: DEV
-            Session["BDTeam"] = 515;
-            // ---------------------------
 
             if (!int.TryParse(Session["BDTeam"].ToString(), out team))
             {
@@ -42,28 +43,34 @@ namespace MoToolsMVC.Controllers
             }
         }
 
-        public ActionResult SaveAttachment(HttpPostedFileBase file)
+        public ActionResult SaveAttachment()
         {
-            // ---------------------------
-            //TODO: DEV
-            //Get RequestId and ActivityId and AttachmentType
-            Guid requestID = new Guid("bf30c6b5-b97b-4adb-959b-f8f3d12b58d8");
-            Guid? activityID = new Guid("d6a257e6-b8fe-40b6-82d8-e0546656bd37"); //Activity 2672227-2015
-            string username = "boanateladmin";
-            Guid? attachmentType = new Guid("14fbe3c8-2864-4d2b-9f17-fea2a9d5c7af"); //TODO: Map Guid in value on attachment type combo
-            // ---------------------------
-            string attachmentName = file.FileName;
+            // Check Web.config <location path="Team/SaveAttachment"> for the maximum request length
 
-            if (file != null && file.ContentLength > 0)
+            string attachmentName, selectedAttachmentType = Request.Form["AttachmentTypes.SelectedOption"];
+            Guid tempGuid;
+            Guid? attachmentType = null;
+            if (Guid.TryParse(selectedAttachmentType, out tempGuid))
             {
-                var url = _serviceUnitOfWork.UploadService.UploadToAzure(file.InputStream, attachmentName, requestID);
-                _serviceUnitOfWork.UploadService.SaveAttachmentToBD(url, requestID, activityID, attachmentName, username, attachmentType);
-                return Json("Uploaded successfully");
+                attachmentType = tempGuid;
             }
-            else
+
+            try
             {
-                return Json("No file to Upload");
+                for (int i = 0; i < Request.Files.Count; i++)
+                {
+                    HttpPostedFileBase file = Request.Files[i];
+                    attachmentName = file.FileName;
+                    var url = _serviceUnitOfWork.UploadService.UploadToAzure(file.InputStream, attachmentName, requestID);
+                    _serviceUnitOfWork.UploadService.SaveAttachmentToBD(url, requestID, activityID, attachmentName, username, attachmentType);
+                }
             }
+            catch (Exception)
+            {
+                return Json("Error uploading");
+            }
+
+            return Json("Uploaded successfully");
         }
 
         public ActionResult DeleteAttachment(Guid id)

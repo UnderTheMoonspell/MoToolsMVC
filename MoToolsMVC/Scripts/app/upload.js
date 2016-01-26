@@ -1,7 +1,8 @@
 ﻿(function () {
     function UploadManager() {
         var _uploadContainer,
-            _this = this;
+            _this = this,
+            noFileMessage = "Por favor selecione um arquivo";
 
         this.setupPopup = function () {
             var combo = $('.attachment-type', _uploadContainer);
@@ -30,19 +31,33 @@
         };
 
         this.clearFileInput = function () {
-            $('.attachment-file', _uploadContainer).wrap('<form>').closest('form').get(0).reset();
-            $('.attachment-file', _uploadContainer).unwrap();
+            var input = $('.attachment-file', _uploadContainer);
+            input.wrap('<form>').closest('form').get(0).reset();
+            input.unwrap();
         };
+
+        this.submitForm = function () {
+            if ($('.attachment-file', _uploadContainer).val()) {
+                $('.attachment-form', _uploadContainer).ajaxSubmit(function (data) {
+                    alertify.success(data);
+                    _this.clearFileInput();
+                });
+            } else {
+                alertify.error(_this.noFileMessage);
+            }
+            return false;
+        }
 
         return {
             init: function (uploadContainer) {
-                _uploadContainer = uploadContainer;
-                $('.attachment-popup-open', uploadContainer).click(_this.setupPopup);
-                $('.close-popup', uploadContainer).click(_this.closePopup);
-                $('.attachment-form', uploadContainer).ajaxForm(function (data) {
-                    alertify.success(data);
-                    closePopup();
-                });
+                _uploadContainer = $(uploadContainer || _uploadContainer).removeClass('upload-manager');
+                _uploadContainer.off('.upload-manager'); // remove namespace handlers
+
+                $('.attachment-popup-open', _uploadContainer).on('click.upload-manager', _this.setupPopup);
+                $('.close-popup', _uploadContainer).on('click.upload-manager', _this.closePopup);
+                $('.attachment-form', _uploadContainer).on('submit.upload-manager', _this.submitForm);
+
+                _uploadContainer.addClass('upload-manager');
             }
         }
     };

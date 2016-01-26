@@ -68,3 +68,7 @@
     text-align: left;
     margin-top: 1px;
 }
+
+.alertify-logs {
+    z-index: 100000;
+}
