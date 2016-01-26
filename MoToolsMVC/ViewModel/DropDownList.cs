@@ -17,9 +17,9 @@ namespace MoToolsMVC.ViewModel
 
         #endregion
 
-        #region Constructors
+        #region Constructor
 
-        public DropDownList(List<DropDownOption> options, bool hasEmptyOption, string selectedOptionValue)
+        public DropDownList(List<DropDownOption> options, bool hasEmptyOption = false, string selectedOptionValue = null)
         {
             if (hasEmptyOption)
             {
@@ -31,10 +31,6 @@ namespace MoToolsMVC.ViewModel
                 this._selectedOption = this.Options.FirstOrDefault(o => o.Value == selectedOptionValue);
             }
         }
-
-        public DropDownList(List<DropDownOption> options, bool hasEmptyOption) : this(options, hasEmptyOption, null) { }
-
-        public DropDownList(List<DropDownOption> options) : this(options, false) { }
 
         #endregion
 

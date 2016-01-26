@@ -10,12 +10,13 @@ namespace MoToolsMVC.ViewModel
         public string UploadButtonName;
         public DropDownList AttachmentTypes;
 
-        public UploadModel(DropDownList attachmentTypes, string uploadButtonName)
+        public UploadModel(DropDownList attachmentTypes, string uploadButtonName = "Adicionar Arquivo")
         {
             this.AttachmentTypes = attachmentTypes;
             this.UploadButtonName = uploadButtonName;
         }
 
-        public UploadModel(DropDownList options) : this(options, "Adicionar Arquivo") { }
+        public UploadModel(List<DropDownOption> attachmentTypes, string uploadButtonName = "Adicionar Arquivo") :
+            this(new DropDownList(attachmentTypes), uploadButtonName) { }
     }
 }

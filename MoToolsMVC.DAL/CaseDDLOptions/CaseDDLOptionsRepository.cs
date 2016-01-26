@@ -11,7 +11,7 @@ namespace MoToolsMVC.DAL.CaseDDLOptions
         List<Get_All_Case_DDLOptions_Result> _ddlOptions;
         public CaseDDLOptionsRepository(RioJaneiroEntities dbcontext)
         {
-            /* TO DO: save in cache */
+            //TODO: Save in cache
             this._ddlOptions = dbcontext.Get_All_Case_DDLOptions().ToList();
         }
 

@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/Vendors")
     @Styles.Render("~/CSS/MoTools")
-    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/Vendors")
     @Scripts.Render("~/bundles/Helpers")
     @RenderSection("scripts", required: false)
 </head>
@@ -71,7 +71,6 @@
                     <td class="default-background" align="left" valign="top">
                         <div class="white-background"></div>
                         <div ID="MasterPanel" class="fullWidth scrollableX scrollableY"  style="min-height: 800px">
-                            @Html.Partial("_Upload")
                             @RenderBody()
                         </div>
                     </td>

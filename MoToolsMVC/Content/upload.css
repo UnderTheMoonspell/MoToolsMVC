@@ -1,0 +1,33 @@
+﻿
+.attachments-list-container {
+    margin: 5px 0px;
+    padding: 10px;
+    font-size: 11px;
+    border: 2px groove threedface;
+}
+
+.attachments-list {
+    border-color: #DDDDDD;
+    border-width: 1px;
+    border-style: Solid;
+    border-collapse: collapse;
+    padding: 4px;
+}
+
+.attachment-type-container {
+    text-align: left;
+    padding-left: 20%;
+}
+
+.attachment-type {
+    font-size: 12px;
+    width: 30%;
+}
+
+label[for=attachment-type] {
+    font-size: 12px;
+}
+
+.attachment-file {
+    width: 355px;
+}

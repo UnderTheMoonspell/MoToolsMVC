@@ -238,7 +238,7 @@
     <Compile Include="Session\SessionNames.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Unity\UnityConfig.cs" />
-	<Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\DropDownList.cs" />
     <Compile Include="ViewModel\DropDownOption.cs" />
     <Compile Include="ViewModel\UploadModel.cs" />
@@ -476,6 +476,7 @@
     <Content Include="Content\loginV2.css" />
     <Content Include="Scripts\main.js" />
     <Content Include="Content\NewActivities.css" />
+    <Content Include="Scripts\vendor\alertify.js" />
     <Content Include="Scripts\vendor\bootstrap.js" />
     <Content Include="Scripts\vendor\bootstrap.min.js" />
     <Content Include="Scripts\menu\menu.js" />
@@ -483,7 +484,7 @@
     <Content Include="Scripts\vendor\jquery-1.10.2.js" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.js" />
     <None Include="Scripts\vendor\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\vendor\jquery-ui.js" />
+    <Content Include="Scripts\vendor\jquery.form.min.js" />
     <Content Include="Scripts\vendor\jquery.validate.js" />
     <Content Include="Scripts\vendor\jquery.validate.min.js" />
     <Content Include="Scripts\vendor\jquery.validate.unobtrusive.js" />
@@ -505,8 +506,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\vendor\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />

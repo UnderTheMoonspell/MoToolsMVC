@@ -7,13 +7,15 @@ namespace MoToolsMVC.ViewModel
 {
     public class DropDownOption
     {
-        public readonly string Value;
-        public readonly string Text;
+        public string Value { get; set; }
+        public string Text { get; set; }
 
         public DropDownOption(string value, string text)
         {
             this.Value = value;
             this.Text = text;
         }
+
+        public DropDownOption(string value): this(value, value) { }
     }
 }
